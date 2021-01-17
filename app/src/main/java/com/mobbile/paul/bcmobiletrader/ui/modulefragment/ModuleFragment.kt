@@ -33,10 +33,11 @@ class ModuleFragment : Fragment(R.layout.modulefragment) {
         }
 
         viewModel.fetchMovieByQuery(
-            "Token 9c8b06d329136da358c2d00e76946b0111ce2c48"
+            "Token 9c8b06d329136da358c2d00e76946b0111ce2c48",1,"chicken"
         ).observe(viewLifecycleOwner, Observer {
             println("LINES $it")
         })
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

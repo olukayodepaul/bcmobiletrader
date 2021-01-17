@@ -10,21 +10,16 @@ import com.mobbile.paul.bcmobiletrader.repository.module.ModuleRepositories
 import kotlinx.coroutines.launch
 
 
-class ModuleViewModel @ViewModelInject constructor(private val repository: ModuleRepositories): ViewModel(){
+class ModuleViewModel @ViewModelInject constructor(private val repository: ModuleRepositories): ViewModel() {
 
-    //passing Module Data to Fragment.......
-    fun fetchMovieByQuery(token: String): LiveData<List<ModuleModel>> {
+    fun fetchMovieByQuery(token: String, page:Int, query:String): LiveData<List<ModuleModel>> {
         val liveData = MutableLiveData<List<ModuleModel>>()
-        viewModelScope.launch{
-            val movies = repository.search(
-                token = token,
-                page = 1,
-                query = "beef carrot potato onion"
+        viewModelScope.launch {
+            val fetchAllModules = repository.search(
+                token, page, query
             )
-            liveData.postValue(movies)
+            liveData.postValue(fetchAllModules)
         }
         return liveData
     }
-
-
 }
