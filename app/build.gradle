@@ -1,0 +1,98 @@
+import dependencies.AndroidTestDependencies
+import dependencies.Dependencies
+import dependencies.Application
+import dependencies.Versions
+import dependencies.Java
+import dependencies.SupportDependencies
+import dependencies.AnnotationProcessing
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.mobbile.paul.bcmobiletrader"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = Java.java_version
+    }
+}
+
+dependencies {
+
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // Kotlin
+    implementation Dependencies.kotlin_standard_library
+    implementation Dependencies.kotlin_reflect
+    implementation Dependencies.ktx
+
+    // Support
+    implementation SupportDependencies.appcompat
+    implementation SupportDependencies.constraintlayout
+    implementation SupportDependencies.material_design
+    implementation SupportDependencies.swipe_refresh_layout
+
+    //hilt
+    implementation Dependencies.hilt_dagger
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    kapt AnnotationProcessing.hilt_compiler
+
+    //navigation component
+    implementation Dependencies.navigation_fragment
+    implementation Dependencies.navigation_ui
+
+    // -- Retrofit2
+    implementation Dependencies.retrofit
+    implementation Dependencies.retrofit_gson
+
+    // -- Lifecycle Components (ViewModel, LiveData and ReactiveStreams)
+    implementation Dependencies.life_cycle_extension
+    kapt AnnotationProcessing.lifecycle_compiler
+
+    // -- Coroutines
+    implementation Dependencies.kotlin_coroutines
+    implementation Dependencies.kotlin_coroutines_android
+
+    // RecyclerView
+    implementation Dependencies.recycler_vew
+
+    //glide
+    implementation Dependencies.glides
+    annotationProcessor Dependencies.glide_github
+
+    //Leak Canary (detecting memory leaks)
+    debugImplementation Dependencies.leak_canary
+
+    implementation Dependencies.hilt_viewModel
+    kapt Dependencies.hilt_viewModel_kapt
+
+}

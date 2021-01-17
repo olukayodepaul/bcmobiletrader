@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/hostnav"
+    app:startDestination="@id/moduleFragment">
+
+    <fragment
+        android:id="@+id/moduleFragment"
+        android:name="com.mobbile.paul.bcmobiletrader.ui.modulefragment.ModuleFragment"
+        android:label="ModuleFragment" >
+        <action
+            android:id="@+id/sentToSecondFragment"
+            app:destination="@id/customersFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/customersFragment"
+        android:name="com.mobbile.paul.bcmobiletrader.ui.customers.CustomersFragment"
+        android:label="CustomersFragment" >
+        <action
+            android:id="@+id/sendToFirstFragment"
+            app:destination="@id/moduleFragment" />
+    </fragment>
+
+
+</navigation>
