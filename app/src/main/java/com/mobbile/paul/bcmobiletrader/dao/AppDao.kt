@@ -5,6 +5,6 @@ import androidx.room.Query
 
 @Dao
 interface AppDao {
-    @Query("insert into modules (auto, id) values (:auto, :id) ")
+    @Query("insert into modules (auto, id) values (:auto, :ids) ")
     suspend fun insertInto(auto: Int, id: Int)
 }
