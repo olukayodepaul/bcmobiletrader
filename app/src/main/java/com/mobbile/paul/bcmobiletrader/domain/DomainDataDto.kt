@@ -2,7 +2,7 @@ package com.mobbile.paul.bcmobiletrader.domain
 
 import com.google.gson.annotations.SerializedName
 
-class ModulesDto (
+data class DomainDataDto (
     @SerializedName("pk")
     var pk: Int? = null,
     @SerializedName("title")

@@ -1,4 +1,4 @@
-package com.mobbile.paul.bcmobiletrader.di.module
+package com.mobbile.paul.bcmobiletrader.di
 
 import android.content.Context
 import com.mobbile.paul.BaseApplication

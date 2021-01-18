@@ -1,4 +1,4 @@
-package com.mobbile.paul.bcmobiletrader.di.module
+package com.mobbile.paul.bcmobiletrader.di
 
 import com.google.gson.GsonBuilder
 import com.mobbile.paul.bcmobiletrader.mappers.ModuleDtoMapper

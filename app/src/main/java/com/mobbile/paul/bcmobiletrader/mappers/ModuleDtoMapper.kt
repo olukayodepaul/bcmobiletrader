@@ -1,13 +1,13 @@
 package com.mobbile.paul.bcmobiletrader.mappers
 
-import com.mobbile.paul.bcmobiletrader.domain.ModulesDto
-import com.mobbile.paul.bcmobiletrader.model.ModuleModel
+import com.mobbile.paul.bcmobiletrader.domain.DomainDataDto
+import com.mobbile.paul.bcmobiletrader.model.NetworkMapperModelData
 import com.mobbile.paul.bcmobiletrader.util.DomainMapper
 
-class ModuleDtoMapper: DomainMapper<ModulesDto, ModuleModel>{
+class ModuleDtoMapper: DomainMapper<DomainDataDto, NetworkMapperModelData>{
 
-    override fun mapToDomainModel(entity: ModulesDto): ModuleModel {
-        return ModuleModel (
+    override fun mapToDomainModel(entity: DomainDataDto): NetworkMapperModelData {
+        return NetworkMapperModelData (
             id = entity.pk,
             title = entity.title,
             featuredImage = entity.featuredImage,
@@ -22,8 +22,8 @@ class ModuleDtoMapper: DomainMapper<ModulesDto, ModuleModel>{
         )
     }
 
-    override fun mapFromDomainModel(domainModel: ModuleModel): ModulesDto {
-        return ModulesDto(
+    override fun mapFromDomainModel(domainModel: NetworkMapperModelData): DomainDataDto {
+        return DomainDataDto(
             pk = domainModel.id,
             title = domainModel.title,
             featuredImage = domainModel.featuredImage,
@@ -39,11 +39,11 @@ class ModuleDtoMapper: DomainMapper<ModulesDto, ModuleModel>{
     }
 
 
-    fun toDomainList(initial: List<ModulesDto>): List<ModuleModel>{
+    fun toDomainList(initial: List<DomainDataDto>): List<NetworkMapperModelData>{
         return initial.map { mapToDomainModel(it) }
     }
 
-    fun fromDomainList(initial: List<ModuleModel>): List<ModulesDto>{
+    fun fromDomainList(initial: List<NetworkMapperModelData>): List<DomainDataDto>{
         return initial.map { mapFromDomainModel(it) }
     }
 }

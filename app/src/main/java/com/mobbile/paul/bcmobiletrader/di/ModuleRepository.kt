@@ -1,4 +1,4 @@
-package com.mobbile.paul.bcmobiletrader.di.module
+package com.mobbile.paul.bcmobiletrader.di
 
 import com.mobbile.paul.bcmobiletrader.dao.AppDao
 import com.mobbile.paul.bcmobiletrader.mappers.ModuleDtoMapper
@@ -23,7 +23,7 @@ object ModuleRepository {
         appdoa: AppDao
     ): ModuleRepositories {
         return ModuleRepositorysImpl(
-            retrofitService, moduleDtoMapper,appdoa
+            retrofitService,moduleDtoMapper,appdoa
         )
     }
 }

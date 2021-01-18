@@ -4,7 +4,7 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class ModuleModel (
+data class NetworkMapperModelData (
     val id: Int? = null,
     val title: String? = null,
     val publisher: String? = null,
