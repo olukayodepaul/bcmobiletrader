@@ -1,9 +1,10 @@
 package com.mobbile.paul.bcmobiletrader.di.module
 
+import com.mobbile.paul.bcmobiletrader.dao.AppDao
 import com.mobbile.paul.bcmobiletrader.mappers.ModuleDtoMapper
 import com.mobbile.paul.bcmobiletrader.network.RetrofitService
 import com.mobbile.paul.bcmobiletrader.repository.module.ModuleRepositories
-import com.mobbile.paul.bcmobiletrader.repository.module.ModuleRepositoriesImpl
+import com.mobbile.paul.bcmobiletrader.repository.module.ModuleRepositorysImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,11 +19,11 @@ object ModuleRepository {
     @Provides
     fun provideModuleRepository(
         retrofitService: RetrofitService,
-        moduleDtoMapper: ModuleDtoMapper
+        moduleDtoMapper: ModuleDtoMapper,
+        appdoa: AppDao
     ): ModuleRepositories {
-        return ModuleRepositoriesImpl(
-            retrofitService = retrofitService,
-            moduleDtoMapper = moduleDtoMapper
+        return ModuleRepositorysImpl(
+            retrofitService, moduleDtoMapper,appdoa
         )
     }
 }

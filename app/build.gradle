@@ -95,4 +95,9 @@ dependencies {
     implementation Dependencies.hilt_viewModel
     kapt Dependencies.hilt_viewModel_kapt
 
+    //Coroutine for room
+    implementation Dependencies.room_runtime
+    implementation Dependencies.room_ktx
+    kapt AnnotationProcessing.room_compiler
+
 }

@@ -1,12 +1,15 @@
 package com.mobbile.paul.bcmobiletrader.repository.module
 
+import com.mobbile.paul.bcmobiletrader.dao.AppDao
 import com.mobbile.paul.bcmobiletrader.mappers.ModuleDtoMapper
 import com.mobbile.paul.bcmobiletrader.model.ModuleModel
 import com.mobbile.paul.bcmobiletrader.network.RetrofitService
 
-class ModuleRepositoriesImpl(
+class ModuleRepositorysImpl(
     private val retrofitService: RetrofitService,
-    private val moduleDtoMapper: ModuleDtoMapper
+    private val moduleDtoMapper: ModuleDtoMapper,
+    private val appdoa: AppDao
+
 ):
     ModuleRepositories
 {
@@ -17,4 +20,9 @@ class ModuleRepositoriesImpl(
     override suspend fun get(token: String, id: Int): ModuleModel {
         return moduleDtoMapper.mapToDomainModel(retrofitService.get(token, id))
     }
+
+    override suspend fun insertIntoModule(auto: Int, id: Int) {
+        appdoa.insertInto(auto, id)
+    }
+
 }

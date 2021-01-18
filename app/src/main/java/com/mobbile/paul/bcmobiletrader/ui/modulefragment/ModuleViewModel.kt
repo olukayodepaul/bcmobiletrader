@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 
 class ModuleViewModel @ViewModelInject constructor(private val repository: ModuleRepositories): ViewModel() {
 
-    fun fetchMovieByQuery(token: String, page:Int, query:String): LiveData<List<ModuleModel>> {
+    fun fetchAllModules(token: String, page:Int, query:String): LiveData<List<ModuleModel>> {
         val liveData = MutableLiveData<List<ModuleModel>>()
         viewModelScope.launch {
             val fetchAllModules = repository.search(
@@ -20,6 +20,14 @@ class ModuleViewModel @ViewModelInject constructor(private val repository: Modul
             )
             liveData.postValue(fetchAllModules)
         }
+
+        viewModelScope.launch {
+            repository.insertIntoModule(
+                1,10
+            )
+        }
         return liveData
     }
+
+
 }
