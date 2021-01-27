@@ -4,11 +4,10 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.NavHostFragment
+import androidx.lifecycle.Observer
 import com.mobbile.paul.bcmobiletrader.R
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.modulefragment.*
-import androidx.lifecycle.Observer
 
 @AndroidEntryPoint
 class ModuleFragment : Fragment(R.layout.modulefragment) {
@@ -16,13 +15,7 @@ class ModuleFragment : Fragment(R.layout.modulefragment) {
     private val viewModel: ModuleViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
         toolbar.inflateMenu(R.menu.menu)
-        toolbar.setNavigationOnClickListener {
-            NavHostFragment.findNavController(this)
-                .navigate(R.id.sentToSecondFragment)
-        }
-
         toolbar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.searches -> {
@@ -31,16 +24,31 @@ class ModuleFragment : Fragment(R.layout.modulefragment) {
                 else -> false
             }
         }
-
-        viewModel.fetchAllModules(
-            "Token 9c8b06d329136da358c2d00e76946b0111ce2c48",1,"chicken"
-        ).observe(viewLifecycleOwner, Observer {
-            println("LINES $it")
-        })
+        onObserve()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu, menu)
     }
+
+    fun onObserve() {
+        viewModel.onRequestButtonClicked("Token 9c8b06d329136da358c2d00e76946b0111ce2c48", 2, "chicken")
+            .observe(viewLifecycleOwner, Observer {
+            it?.let { resource ->
+                when(resource){
+                    is ModulesState.Success ->{
+
+                    }
+                    is ModulesState.Loading ->{
+                        println("ViewModelTest 2 $resource")
+                    }
+                    is ModulesState.Error ->{
+                        println("ViewModelTest 3 $resource")
+                    }
+                }
+            }
+        })
+    }
+
 
 }

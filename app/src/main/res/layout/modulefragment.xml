@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bp"
@@ -19,7 +20,21 @@
         />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/tv_module"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:background="@color/ballReleasegb"
+        android:layout_below="@+id/toolbar"
+        />
 
-</LinearLayout>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/bp"
+        android:indeterminate="true"
+        android:layout_below="@+id/toolbar"
+        android:layout_margin="20dp"
+        />
+
+</RelativeLayout>

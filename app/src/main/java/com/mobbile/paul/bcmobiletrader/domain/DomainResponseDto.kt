@@ -6,5 +6,5 @@ data class DomainResponseDto (
     @SerializedName("pk")
     var pk: Int? = null,
     @SerializedName("results")
-    var recipes: List<DomainDataDto>
+    var results: List<DomainDataDto>
 )

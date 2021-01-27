@@ -24,16 +24,24 @@ object Dependencies {
     val firebase_auth = "com.google.firebase:firebase-auth:${Versions.firebase_auth}"
     val firebase_analytics = "com.google.firebase:firebase-analytics:${Versions.firebase_analytics}"
     val firebase_crashlytics = "com.crashlytics.sdk.android:crashlytics:${Versions.firebase_crashlytics}"
-    val lifecycle_runtime = "androidx.lifecycle:lifecycle-runtime:${Versions.lifecycle_version}"
-    val life_cycle_extension = "androidx.lifecycle:lifecycle-extensions:${Versions.life_cycle_extension_version}"
-    val lifecycle_coroutines = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle_version}"
-    val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit2_version}"
+   val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit2_version}"
     val retrofit_gson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit2_version}"
     val markdown_processor = "com.yydcdut:markdown-processor:${Versions.markdown_processor}"
     val hilt_dagger = "com.google.dagger:hilt-android:${Versions.hilt_dagger_version}"
     val recycler_vew = "androidx.recyclerview:recyclerview:${Versions.recycle_view_version}"
     val glides = "com.github.bumptech.glide:glide:${Versions.glide_version}"
     val glide_github = "com.github.bumptech.glide:compiler:${Versions.glide_version}"
+
     val hilt_viewModel = "androidx.hilt:hilt-lifecycle-viewmodel:${hilt_lifecycle_viewmodel}"
     val hilt_viewModel_kapt = "androidx.hilt:hilt-compiler:$hilt_lifecycle_viewmodel"
+
+    val colorGenerator = "com.amulyakhare:com.amulyakhare.textdrawable:${Versions.colorGeneratorVetsion}"
+
+    val lifecycle = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle_version}"
+    val lifecycle_common = "androidx.lifecycle:lifecycle-common:${Versions.lifecycle_version}"
+    val lifecycle_runtime = "androidx.lifecycle:lifecycle-runtime:${Versions.lifecycle_version}"
+    val life_cycle_extension = "androidx.lifecycle:lifecycle-extensions:${Versions.life_cycle_extension_version}"
+
+
+
 }

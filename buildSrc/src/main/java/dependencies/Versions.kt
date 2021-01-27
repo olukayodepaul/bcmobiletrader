@@ -45,4 +45,5 @@ object Versions {
     val recycle_view_version = "1.1.0-beta03"
     val glide_version = "4.9.0"
     val hilt_lifecycle_viewmodel = "1.0.0-alpha01"
+    val colorGeneratorVetsion = "1.0.1"
 }

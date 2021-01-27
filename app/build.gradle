@@ -61,10 +61,12 @@ dependencies {
 
     //hilt
     implementation Dependencies.hilt_dagger
+    kapt AnnotationProcessing.hilt_compiler
+
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    kapt AnnotationProcessing.hilt_compiler
+
 
     //navigation component
     implementation Dependencies.navigation_fragment
@@ -73,10 +75,16 @@ dependencies {
     // -- Retrofit2
     implementation Dependencies.retrofit
     implementation Dependencies.retrofit_gson
+    //implementation 'com.google.code.gson:gson:2.8.5'
+    //implementation 'com.squareup.okhttp3:logging-interceptor:3.12.0'
 
     // -- Lifecycle Components (ViewModel, LiveData and ReactiveStreams)
     implementation Dependencies.life_cycle_extension
+    implementation Dependencies.lifecycle_runtime
+    implementation Dependencies.lifecycle
+    implementation Dependencies.lifecycle_common
     kapt AnnotationProcessing.lifecycle_compiler
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
 
     // -- Coroutines
     implementation Dependencies.kotlin_coroutines
@@ -99,5 +107,8 @@ dependencies {
     implementation Dependencies.room_runtime
     implementation Dependencies.room_ktx
     kapt AnnotationProcessing.room_compiler
+
+    //image circles
+    implementation Dependencies.colorGenerator
 
 }

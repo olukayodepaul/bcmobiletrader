@@ -1,4 +1,4 @@
-package com.mobbile.paul.bcmobiletrader.repository.module
+package com.mobbile.paul.bcmobiletrader.repository.customers
 
 import com.mobbile.paul.bcmobiletrader.dao.AppDao
 import com.mobbile.paul.bcmobiletrader.domain.DomainResponseDto
@@ -8,12 +8,12 @@ import com.mobbile.paul.bcmobiletrader.network.RetrofitService
 
 
 
-class ModuleRepositorysImpl(
+class CustomerRepositorysImpl(
     private val retrofitService: RetrofitService,
     private val moduleDtoMapper: ModuleDtoMapper,
     private val appdoa: AppDao
 ) :
-    ModuleRepositories {
+    CustomerRepositories {
     override suspend fun search(
         token: String,
         page: Int,

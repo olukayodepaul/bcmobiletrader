@@ -6,4 +6,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="bp">#0F75BD</color>
     <color name="bp_x">#ECEFF1</color>
+    <color name="ballReleasegb">#CACACA</color>
+    <color name="rippleEffectColor">#FFFFFF</color>
+
 </resources>

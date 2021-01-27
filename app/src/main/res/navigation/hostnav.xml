@@ -17,8 +17,21 @@
         android:name="com.mobbile.paul.bcmobiletrader.ui.customers.CustomersFragment"
         android:label="CustomersFragment" >
         <action
-            android:id="@+id/sendToFirstFragment"
+            android:id="@+id/action_customersFragment_to_moduleFragment"
             app:destination="@id/moduleFragment" />
+        <action
+            android:id="@+id/action_customersFragment_to_salesEntryFragment2"
+            app:destination="@id/salesEntryFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/salesEntryFragment"
+        android:name="com.mobbile.paul.bcmobiletrader.ui.salesentries.SalesEntryFragment"
+        android:label="SalesEntryFragment" >
+        <action
+            android:id="@+id/action_salesEntryFragment_to_customersFragment2"
+            app:destination="@id/customersFragment" />
     </fragment>
 
 

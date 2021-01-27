@@ -3,6 +3,9 @@ package com.mobbile.paul.bcmobiletrader.repository.module
 import com.mobbile.paul.bcmobiletrader.domain.DomainResponseDto
 
 
-interface ModuleRepositories {
-    suspend fun search(token: String, page: Int, query: String): DomainResponseDto
-}
+data class ModuleStateEvent(
+    val status: Int,
+    val error: String,
+    val body: DomainResponseDto? = null
+)
+
