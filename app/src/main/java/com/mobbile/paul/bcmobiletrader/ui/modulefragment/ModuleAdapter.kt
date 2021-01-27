@@ -48,4 +48,5 @@ class ModuleAdapter (private var mItems: List<DomainDataDto>) :
             }
         }
     }
+
 }

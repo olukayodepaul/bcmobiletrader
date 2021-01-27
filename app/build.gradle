@@ -84,7 +84,7 @@ dependencies {
     implementation Dependencies.lifecycle
     implementation Dependencies.lifecycle_common
     kapt AnnotationProcessing.lifecycle_compiler
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+    //implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
 
     // -- Coroutines
     implementation Dependencies.kotlin_coroutines

@@ -5,6 +5,7 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mobbile.paul.bcmobiletrader.R
@@ -28,7 +29,11 @@ class ModuleFragment : Fragment(R.layout.modulefragment) {
                 else -> false
             }
         }
-        onObserve()
+
+        //coroutine Fragment and activity scope
+        lifecycleScope.launchWhenCreated {
+            onObserve()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -41,10 +46,10 @@ class ModuleFragment : Fragment(R.layout.modulefragment) {
         tv_module.layoutManager = layoutManager
         tv_module!!.setHasFixedSize(true)
 
-        viewModel.onRequestButtonClicked("Token 9c8b06d329136da358c2d00e76946b0111ce2c4", 2, "chicken")
+        viewModel.onRequestButtonClicked("Token 9c8b06d329136da358c2d00e76946b0111ce2c48", 2, "chicken")
             .observe(viewLifecycleOwner, Observer {
             it?.let { resource ->
-                when(resource){
+                when(resource) {
                     is ModulesState.Success ->{
                         println("ViewModelTest 1 $resource")
                         progressBar.visibility =View.INVISIBLE
