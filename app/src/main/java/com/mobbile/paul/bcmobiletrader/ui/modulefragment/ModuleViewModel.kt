@@ -23,7 +23,7 @@ class ModuleViewModel @ViewModelInject constructor(private val repository: Modul
         }
     }*/
 
-    fun onRequestButtonClicked(token: String, page:Int, query:String) : LiveData<ModulesState>{
+    fun onRequestButtonClicked(token: String, page:Int, query:String) : LiveData<ModulesState> {
         val uiState = MutableLiveData<ModulesState>()
         uiState.value = ModulesState.Loading
         viewModelScope.launch {

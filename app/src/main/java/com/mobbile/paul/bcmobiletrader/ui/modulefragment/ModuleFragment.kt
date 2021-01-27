@@ -41,11 +41,12 @@ class ModuleFragment : Fragment(R.layout.modulefragment) {
         tv_module.layoutManager = layoutManager
         tv_module!!.setHasFixedSize(true)
 
-        viewModel.onRequestButtonClicked("Token 9c8b06d329136da358c2d00e76946b0111ce2c48", 2, "chicken")
+        viewModel.onRequestButtonClicked("Token 9c8b06d329136da358c2d00e76946b0111ce2c4", 2, "chicken")
             .observe(viewLifecycleOwner, Observer {
             it?.let { resource ->
                 when(resource){
                     is ModulesState.Success ->{
+                        println("ViewModelTest 1 $resource")
                         progressBar.visibility =View.INVISIBLE
                         nAdapter = ModuleAdapter(resource.data.results)
                         nAdapter.notifyDataSetChanged()
@@ -53,6 +54,7 @@ class ModuleFragment : Fragment(R.layout.modulefragment) {
                         tv_module.adapter = nAdapter
                     }
                     is ModulesState.Loading ->{
+                        println("ViewModelTest 2 $resource")
                         progressBar.visibility =View.VISIBLE
                     }
                     is ModulesState.Error ->{
