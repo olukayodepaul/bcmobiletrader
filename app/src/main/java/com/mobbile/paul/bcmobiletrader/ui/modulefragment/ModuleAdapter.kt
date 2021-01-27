@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.amulyakhare.textdrawable.TextDrawable
 import com.amulyakhare.textdrawable.util.ColorGenerator
@@ -43,8 +44,7 @@ class ModuleAdapter (private var mItems: List<DomainDataDto>) :
             containerView.tv_name.text = item.publisher
 
             containerView.setOnClickListener {
-                Navigation.findNavController(it).navigate(R.id.sentToSecondFragment)
-                //it.findNavController().navigate(R.id.sentToSecondFragment);
+                it.findNavController().navigate(R.id.sentToSecondFragment);
             }
         }
     }
