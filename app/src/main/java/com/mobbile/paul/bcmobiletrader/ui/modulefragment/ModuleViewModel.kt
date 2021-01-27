@@ -3,6 +3,7 @@ package com.mobbile.paul.bcmobiletrader.ui.modulefragment
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.mobbile.paul.bcmobiletrader.repository.module.ModuleRepositories
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 

@@ -14,9 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.mobbile.paul.bcmobiletrader.ui.mainlogin.MainActivity"/>
+        <activity android:name="com.mobbile.paul.bcmobiletrader.ui.mainloginfragment.MainActivity"/>
 
-        <activity android:name="com.mobbile.paul.bcmobiletrader.ui.maincontent.MainFragment">
+        <activity android:name="com.mobbile.paul.bcmobiletrader.ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

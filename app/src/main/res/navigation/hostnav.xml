@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/hostnav"
-    app:startDestination="@id/moduleFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/moduleFragment"
@@ -32,6 +32,15 @@
         <action
             android:id="@+id/action_salesEntryFragment_to_customersFragment2"
             app:destination="@id/customersFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.mobbile.paul.bcmobiletrader.ui.mainloginfragment.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_moduleFragment"
+            app:destination="@id/moduleFragment" />
     </fragment>
 
 

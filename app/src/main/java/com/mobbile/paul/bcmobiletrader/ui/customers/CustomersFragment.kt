@@ -17,8 +17,5 @@ class CustomersFragment: Fragment(R.layout.customersfragment) {
             NavHostFragment.findNavController(this)
                 .navigate(R.id.action_customersFragment_to_moduleFragment)
         }
-
-
-
     }
 }
