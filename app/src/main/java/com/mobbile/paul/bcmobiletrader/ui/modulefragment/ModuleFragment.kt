@@ -46,13 +46,14 @@ class ModuleFragment : Fragment(R.layout.modulefragment) {
             it?.let { resource ->
                 when(resource){
                     is ModulesState.Success ->{
+                        progressBar.visibility =View.INVISIBLE
                         nAdapter = ModuleAdapter(resource.data.results)
                         nAdapter.notifyDataSetChanged()
                         tv_module.setItemViewCacheSize(resource.data.results.size)
                         tv_module.adapter = nAdapter
                     }
                     is ModulesState.Loading ->{
-                        println("ViewModelTest 4 $resource")
+                        progressBar.visibility =View.VISIBLE
                     }
                     is ModulesState.Error ->{
                         println("ViewModelTest 3 $resource")
