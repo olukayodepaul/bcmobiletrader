@@ -52,7 +52,7 @@ class ModuleFragment : Fragment(R.layout.modulefragment) {
                         tv_module.adapter = nAdapter
                     }
                     is ModulesState.Loading ->{
-                        println("ViewModelTest 2 $resource")
+                        println("ViewModelTest 4 $resource")
                     }
                     is ModulesState.Error ->{
                         println("ViewModelTest 3 $resource")
