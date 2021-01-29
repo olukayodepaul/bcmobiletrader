@@ -3,16 +3,15 @@ package com.mobbile.paul.bcmobiletrader.ui.modulefragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.amulyakhare.textdrawable.TextDrawable
 import com.amulyakhare.textdrawable.util.ColorGenerator
 import com.mobbile.paul.bcmobiletrader.R
-import com.mobbile.paul.bcmobiletrader.domain.DomainDataDto
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.moduleadater_layout.view.*
 
+/*
 class ModuleAdapter (private var mItems: List<DomainDataDto>) :
     RecyclerView.Adapter<ModuleAdapter.ViewHolder>() {
 
@@ -50,4 +49,4 @@ class ModuleAdapter (private var mItems: List<DomainDataDto>) :
         }
     }
 
-}
+}*/

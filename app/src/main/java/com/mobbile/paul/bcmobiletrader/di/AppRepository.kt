@@ -1,10 +1,9 @@
 package com.mobbile.paul.bcmobiletrader.di
 
 import com.mobbile.paul.bcmobiletrader.dao.AppDao
-import com.mobbile.paul.bcmobiletrader.mappers.ModuleDtoMapper
 import com.mobbile.paul.bcmobiletrader.network.RetrofitService
-import com.mobbile.paul.bcmobiletrader.repository.customers.CustomerRepository
-import com.mobbile.paul.bcmobiletrader.repository.customers.CustomerRepositorysImpl
+import com.mobbile.paul.bcmobiletrader.ui.customers.repository.CustomerRepository
+import com.mobbile.paul.bcmobiletrader.ui.customers.repository.CustomerRepositoryImpl
 import com.mobbile.paul.bcmobiletrader.ui.modulefragment.repository.ModuleRepository
 import com.mobbile.paul.bcmobiletrader.ui.modulefragment.repository.ModuleRepositoryImpl
 import com.mobbile.paul.bcmobiletrader.ui.mainloginfragment.repository.LoginRepository
@@ -21,37 +20,34 @@ object AppRepository {
 
     @Singleton
     @Provides
-    fun provideModuleRepository(
-        retrofitService: RetrofitService,
-        moduleDtoMapper: ModuleDtoMapper,
-        appdoa: AppDao
-    ): ModuleRepository {
-        return ModuleRepositoryImpl(
-            retrofitService, moduleDtoMapper, appdoa
-        )
-    }
-
-    @Singleton
-    @Provides
-    fun provideCustomersRepository(
-        retrofitService: RetrofitService,
-        moduleDtoMapper: ModuleDtoMapper,
-        appdoa: AppDao
-    ): CustomerRepository {
-        return CustomerRepositorysImpl(
-            retrofitService,moduleDtoMapper,appdoa
-        )
-    }
-
-    @Singleton
-    @Provides
     fun provideLoginRepository(
         retrofitService: RetrofitService,
-        moduleDtoMapper: ModuleDtoMapper,
         appdoa: AppDao
     ): LoginRepository {
         return LoginRepositoryImpl(
-            retrofitService,moduleDtoMapper,appdoa
+            retrofitService,appdoa
+        )
+    }
+
+    @Singleton
+    @Provides
+    fun provideModuleRepository(
+        retrofitService: RetrofitService,
+        appdoa: AppDao
+    ): ModuleRepository {
+        return ModuleRepositoryImpl(
+            retrofitService,  appdoa
+        )
+    }
+
+    @Singleton
+    @Provides
+    fun provideCustomerRepository(
+        retrofitService: RetrofitService,
+        appdoa: AppDao
+    ): CustomerRepository {
+        return CustomerRepositoryImpl(
+            retrofitService, appdoa
         )
     }
 

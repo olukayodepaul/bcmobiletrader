@@ -2,6 +2,7 @@ package com.mobbile.paul.bcmobiletrader.network
 
 
 
+import com.mobbile.paul.bcmobiletrader.ui.customers.CustomerResDto
 import com.mobbile.paul.bcmobiletrader.ui.mainloginfragment.UserLogin
 import com.mobbile.paul.bcmobiletrader.ui.modulefragment.ModulesResDto
 import retrofit2.http.GET
@@ -21,4 +22,10 @@ interface RetrofitService{
         @Query("password") password: String,
         @Query("ime1") ime1: String
     ): UserLogin
+
+    @GET("ba/api/customers")
+    suspend fun getCustomers(
+        @Query("employeeid") employeeid: Int
+    ): CustomerResDto
+
 }

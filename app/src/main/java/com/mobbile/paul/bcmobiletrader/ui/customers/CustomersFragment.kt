@@ -5,9 +5,10 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import com.mobbile.paul.bcmobiletrader.R
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.customersfragment.*
 
-
+@AndroidEntryPoint
 class CustomersFragment: Fragment(R.layout.customersfragment) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

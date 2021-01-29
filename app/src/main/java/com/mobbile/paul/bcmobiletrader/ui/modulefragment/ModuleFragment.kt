@@ -15,7 +15,7 @@ class ModuleFragment : Fragment(R.layout.modulefragment) {
 
     private val viewModel: ModuleViewModel by viewModels()
 
-    private lateinit var nAdapter: ModuleAdapter
+    //private lateinit var nAdapter: ModuleAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         toolbar.inflateMenu(R.menu.menu)

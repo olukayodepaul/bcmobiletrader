@@ -1,8 +1,15 @@
-package com.mobbile.paul.bcmobiletrader.domain
+package com.mobbile.paul.bcmobiletrader.ui.customers
 
 import com.google.gson.annotations.SerializedName
 
-data class DomainDataDto (
+data class CustomerResDto (
+    @SerializedName("pk")
+    var pk: Int? = null,
+    @SerializedName("results")
+    var results: List<CustomersListDto>
+)
+
+data class CustomersListDto (
     @SerializedName("pk")
     var pk: Int? = null,
     @SerializedName("title")

@@ -1,14 +1,12 @@
 package com.mobbile.paul.bcmobiletrader.ui.mainloginfragment.repository
 
 import com.mobbile.paul.bcmobiletrader.dao.AppDao
-import com.mobbile.paul.bcmobiletrader.mappers.ModuleDtoMapper
 import com.mobbile.paul.bcmobiletrader.network.RetrofitService
 import com.mobbile.paul.bcmobiletrader.ui.mainloginfragment.UserLogin
 
 
 class LoginRepositoryImpl(
     private val retrofitService: RetrofitService,
-    private val moduleDtoMapper: ModuleDtoMapper,
     private val appdoa: AppDao
 ) :
    LoginRepository{

@@ -1,7 +1,6 @@
 package com.mobbile.paul.bcmobiletrader.di
 
 import com.google.gson.GsonBuilder
-import com.mobbile.paul.bcmobiletrader.mappers.ModuleDtoMapper
 import com.mobbile.paul.bcmobiletrader.network.RetrofitService
 import dagger.Module
 import dagger.Provides
@@ -14,12 +13,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(ApplicationComponent::class)
 object NetworkModule {
-
-    @Singleton
-    @Provides
-    fun provideRecipeMapper(): ModuleDtoMapper {
-        return ModuleDtoMapper()
-    }
 
     @Singleton
     @Provides
