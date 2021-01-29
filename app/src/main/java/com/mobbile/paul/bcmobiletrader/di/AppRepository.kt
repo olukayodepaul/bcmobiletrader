@@ -8,6 +8,8 @@ import com.mobbile.paul.bcmobiletrader.ui.modulefragment.repository.ModuleReposi
 import com.mobbile.paul.bcmobiletrader.ui.modulefragment.repository.ModuleRepositoryImpl
 import com.mobbile.paul.bcmobiletrader.ui.mainloginfragment.repository.LoginRepository
 import com.mobbile.paul.bcmobiletrader.ui.mainloginfragment.repository.LoginRepositoryImpl
+import com.mobbile.paul.bcmobiletrader.ui.productlist.repository.ProductListRepository
+import com.mobbile.paul.bcmobiletrader.ui.productlist.repository.ProductListRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -47,6 +49,17 @@ object AppRepository {
         appdoa: AppDao
     ): CustomerRepository {
         return CustomerRepositoryImpl(
+            retrofitService, appdoa
+        )
+    }
+
+    @Singleton
+    @Provides
+    fun provideProductListepository(
+        retrofitService: RetrofitService,
+        appdoa: AppDao
+    ): ProductListRepository {
+        return ProductListRepositoryImpl(
             retrofitService, appdoa
         )
     }

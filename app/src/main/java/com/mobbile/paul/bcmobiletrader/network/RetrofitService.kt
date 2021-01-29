@@ -1,10 +1,10 @@
 package com.mobbile.paul.bcmobiletrader.network
 
 
-
 import com.mobbile.paul.bcmobiletrader.ui.customers.CustomerResDto
 import com.mobbile.paul.bcmobiletrader.ui.mainloginfragment.UserLogin
 import com.mobbile.paul.bcmobiletrader.ui.modulefragment.ModulesResDto
+import com.mobbile.paul.bcmobiletrader.ui.productlist.ProductResDto
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Query
@@ -27,5 +27,12 @@ interface RetrofitService{
     suspend fun getCustomers(
         @Query("employeeid") employeeid: Int
     ): CustomerResDto
+
+    @GET("ba/api/productlist")
+    suspend fun getProductListByCompany(
+        @Query("employeeid") employeeid: Int,
+        @Query("companyid") companyid: Int,
+        @Query("subdivision") subdivision: Int
+    ): ProductResDto
 
 }

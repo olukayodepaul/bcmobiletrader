@@ -6,5 +6,9 @@ data class UserLogin(
     @SerializedName("ownersname")
     var ownersname: String? = null,
     @SerializedName("employeeid")
-    var employeeid:String? = null
+    var employeeid:String? = null,
+    @SerializedName("business")
+    var business:String? = null,
+    @SerializedName("subdivision")
+    var subdivision:String? = null
 )

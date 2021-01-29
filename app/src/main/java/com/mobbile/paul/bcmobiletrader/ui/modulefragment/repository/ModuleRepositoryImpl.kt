@@ -10,9 +10,11 @@ class ModuleRepositoryImpl(
     private val appdoa: AppDao
 ) :
     ModuleRepository {
+
     override suspend fun getModules(
         employeeid: Int
     ): ModulesResDto {
         return retrofitService.getModules(employeeid)
     }
+
 }
