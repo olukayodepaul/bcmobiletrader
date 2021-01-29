@@ -2,7 +2,6 @@ package com.mobbile.paul.bcmobiletrader.repository.module
 
 import com.mobbile.paul.bcmobiletrader.dao.AppDao
 import com.mobbile.paul.bcmobiletrader.domain.DomainResponseDto
-import retrofit2.Response
 import com.mobbile.paul.bcmobiletrader.mappers.ModuleDtoMapper
 import com.mobbile.paul.bcmobiletrader.network.RetrofitService
 

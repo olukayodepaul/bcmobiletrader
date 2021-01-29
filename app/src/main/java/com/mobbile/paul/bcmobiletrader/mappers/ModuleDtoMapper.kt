@@ -5,8 +5,15 @@ import com.mobbile.paul.bcmobiletrader.model.ModuleModelData
 import com.mobbile.paul.bcmobiletrader.util.DomainMapper
 
 class ModuleDtoMapper: DomainMapper<DomainDataDto, ModuleModelData>{
-
     override fun mapToDomainModel(entity: DomainDataDto): ModuleModelData {
+        TODO("Not yet implemented")
+    }
+
+    override fun mapFromDomainModel(domainModel: ModuleModelData): DomainDataDto {
+        TODO("Not yet implemented")
+    }
+
+    /*override fun mapToDomainModel(entity: DomainDataDto): ModuleModelData {
         return ModuleModelData (
             id = entity.pk,
             title = entity.title,
@@ -45,5 +52,5 @@ class ModuleDtoMapper: DomainMapper<DomainDataDto, ModuleModelData>{
 
     fun fromDomainList(initial: List<ModuleModelData>): List<DomainDataDto>{
         return initial.map { mapFromDomainModel(it) }
-    }
+    }*/
 }

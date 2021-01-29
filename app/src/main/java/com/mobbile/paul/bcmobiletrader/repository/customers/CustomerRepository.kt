@@ -4,6 +4,6 @@ import com.mobbile.paul.bcmobiletrader.domain.DomainResponseDto
 import retrofit2.Response
 
 
-interface CustomerRepositories {
+interface CustomerRepository {
     suspend fun search(token: String, page: Int, query: String): DomainResponseDto
 }

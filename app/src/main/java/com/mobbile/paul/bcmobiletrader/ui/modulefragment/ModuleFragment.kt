@@ -32,25 +32,24 @@ class ModuleFragment : Fragment(R.layout.modulefragment) {
 
         //coroutine Fragment and activity scope
         lifecycleScope.launchWhenCreated {
-            onObserve()
+            onObserveUserModules()
         }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu, menu)
     }
 
-    fun onObserve() {
-
+    private fun onObserveUserModules() {
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this.requireContext())
         tv_module.layoutManager = layoutManager
         tv_module!!.setHasFixedSize(true)
-
-        viewModel.onRequestButtonClicked("Token 9c8b06d329136da358c2d00e76946b0111ce2c48", 2, "chicken")
-            .observe(viewLifecycleOwner, Observer {
+        viewModel.fetchUserModules("Token 9c8b06d329136da358c2d00e76946b0111ce2c48", 2, "chicken")
+        viewModel.uiState().observe(viewLifecycleOwner, Observer {
                 it?.let { resource ->
                     when(resource) {
-                        is ModulesState.Success ->{
+                        is ModulesState.Success -> {
                             println("ViewModelTest 1 $resource")
                             progressBar.visibility =View.INVISIBLE
                             nAdapter = ModuleAdapter(resource.data.results)
@@ -58,12 +57,12 @@ class ModuleFragment : Fragment(R.layout.modulefragment) {
                             tv_module.setItemViewCacheSize(resource.data.results.size)
                             tv_module.adapter = nAdapter
                         }
-                        is ModulesState.Loading ->{
+                        is ModulesState.Loading -> {
                             println("ViewModelTest 2 $resource")
                             progressBar.visibility =View.VISIBLE
                         }
-                        is ModulesState.Error ->{
-                            progressBar.visibility =View.VISIBLE
+                        is ModulesState.Error -> {
+                            progressBar.visibility =View.INVISIBLE
                             println("ViewModelTest 3 $resource")
                         }
                     }

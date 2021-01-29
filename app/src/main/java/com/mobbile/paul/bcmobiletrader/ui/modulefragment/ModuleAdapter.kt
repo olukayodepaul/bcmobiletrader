@@ -17,6 +17,7 @@ class ModuleAdapter (private var mItems: List<DomainDataDto>) :
     RecyclerView.Adapter<ModuleAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
+        println("RECYCLERTEST $p1 $p0")
         val v = LayoutInflater.from(p0.context)
             .inflate(R.layout.moduleadater_layout, p0, false)
         return ViewHolder(v)
