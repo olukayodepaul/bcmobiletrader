@@ -11,11 +11,11 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 
-class LoginViewModel @ViewModelInject constructor(private val loginRepository: LoginRepository): ViewModel() {
+class LoginViewModel @ViewModelInject constructor(private val repository: LoginRepository): ViewModel() {
 
 
     private val _loginUiState = MutableStateFlow<LoginUiState>(LoginUiState.Empty)
-    val loginUiState: StateFlow<LoginUiState> = _loginUiState
+    val loginUiState get() = _loginUiState
 
     fun login(username: String, password: String, ime1: String) = viewModelScope.launch{
         println("Mercy empty")
@@ -24,13 +24,12 @@ class LoginViewModel @ViewModelInject constructor(private val loginRepository: L
             _loginUiState.value= LoginUiState.Error("Please enter login credential")
         } else {
             try {
-                val data = loginRepository.login(username, password, ime1)
+                val data = repository.login(username, password, ime1)
                 _loginUiState.value = LoginUiState.Success(data)
             }catch (e: Exception) {
                 _loginUiState.value= LoginUiState.Error(e.message.toString())
             }
         }
     }
-
 
 }

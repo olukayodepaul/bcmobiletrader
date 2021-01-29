@@ -5,8 +5,8 @@ import com.mobbile.paul.bcmobiletrader.mappers.ModuleDtoMapper
 import com.mobbile.paul.bcmobiletrader.network.RetrofitService
 import com.mobbile.paul.bcmobiletrader.repository.customers.CustomerRepository
 import com.mobbile.paul.bcmobiletrader.repository.customers.CustomerRepositorysImpl
-import com.mobbile.paul.bcmobiletrader.repository.module.ModuleRepositories
-import com.mobbile.paul.bcmobiletrader.repository.module.ModuleRepositorysImpl
+import com.mobbile.paul.bcmobiletrader.ui.modulefragment.repository.ModuleRepository
+import com.mobbile.paul.bcmobiletrader.ui.modulefragment.repository.ModuleRepositoryImpl
 import com.mobbile.paul.bcmobiletrader.ui.mainloginfragment.repository.LoginRepository
 import com.mobbile.paul.bcmobiletrader.ui.mainloginfragment.repository.LoginRepositoryImpl
 import dagger.Module
@@ -25,9 +25,9 @@ object AppRepository {
         retrofitService: RetrofitService,
         moduleDtoMapper: ModuleDtoMapper,
         appdoa: AppDao
-    ): ModuleRepositories {
-        return ModuleRepositorysImpl(
-            retrofitService,moduleDtoMapper,appdoa
+    ): ModuleRepository {
+        return ModuleRepositoryImpl(
+            retrofitService, moduleDtoMapper, appdoa
         )
     }
 

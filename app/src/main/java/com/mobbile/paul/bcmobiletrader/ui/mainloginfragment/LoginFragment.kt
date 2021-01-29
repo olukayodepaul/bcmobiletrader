@@ -25,6 +25,7 @@ class LoginFragment: Fragment(R.layout.loginfragment) {
             progressBar.visibility = View.VISIBLE
             ObservingLogin()
         }
+
     }
 
     private fun ObservingLogin() {
