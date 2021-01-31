@@ -29,4 +29,5 @@ object LocalCacheModule {
     fun provideDao(db: AppDatabase): AppDao {
         return db.appdao
     }
+
 }

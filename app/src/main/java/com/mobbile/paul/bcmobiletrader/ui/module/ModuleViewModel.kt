@@ -1,10 +1,9 @@
-package com.mobbile.paul.bcmobiletrader.ui.modulefragment
+package com.mobbile.paul.bcmobiletrader.ui.module
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
-import com.mobbile.paul.bcmobiletrader.ui.modulefragment.repository.ModuleRepository
+import com.mobbile.paul.bcmobiletrader.ui.module.repository.ModuleRepository
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 

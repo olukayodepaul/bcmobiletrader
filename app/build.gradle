@@ -76,7 +76,7 @@ dependencies {
     implementation Dependencies.navigation_fragment
     implementation Dependencies.navigation_ui
 
-    // -- Retrofit2
+    // -- Retrofit3
     implementation Dependencies.retrofit
     implementation Dependencies.retrofit_gson
     //implementation 'com.google.code.gson:gson:2.8.5'

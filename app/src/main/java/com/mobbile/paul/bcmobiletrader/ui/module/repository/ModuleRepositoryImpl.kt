@@ -1,8 +1,8 @@
-package com.mobbile.paul.bcmobiletrader.ui.modulefragment.repository
+package com.mobbile.paul.bcmobiletrader.ui.module.repository
 
 import com.mobbile.paul.bcmobiletrader.dao.AppDao
 import com.mobbile.paul.bcmobiletrader.network.RetrofitService
-import com.mobbile.paul.bcmobiletrader.ui.modulefragment.ModulesResDto
+import com.mobbile.paul.bcmobiletrader.ui.module.ModulesResDto
 
 
 class ModuleRepositoryImpl(
@@ -10,11 +10,9 @@ class ModuleRepositoryImpl(
     private val appdoa: AppDao
 ) :
     ModuleRepository {
-
     override suspend fun getModules(
         employeeid: Int
     ): ModulesResDto {
         return retrofitService.getModules(employeeid)
     }
-
 }

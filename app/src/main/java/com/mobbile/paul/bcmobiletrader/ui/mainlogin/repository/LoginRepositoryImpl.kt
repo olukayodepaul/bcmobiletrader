@@ -1,8 +1,8 @@
-package com.mobbile.paul.bcmobiletrader.ui.mainloginfragment.repository
+package com.mobbile.paul.bcmobiletrader.ui.mainlogin.repository
 
 import com.mobbile.paul.bcmobiletrader.dao.AppDao
 import com.mobbile.paul.bcmobiletrader.network.RetrofitService
-import com.mobbile.paul.bcmobiletrader.ui.mainloginfragment.UserLogin
+import com.mobbile.paul.bcmobiletrader.ui.mainlogin.UserLoginRes
 
 
 class LoginRepositoryImpl(
@@ -10,7 +10,7 @@ class LoginRepositoryImpl(
     private val appdoa: AppDao
 ) :
    LoginRepository{
-    override suspend fun login(username: String, password: String, imie: String): UserLogin {
+    override suspend fun login(username: String, password: String, imie: String): UserLoginRes {
         return retrofitService.login(username, password, imie)
     }
 }

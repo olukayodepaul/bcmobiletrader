@@ -14,9 +14,9 @@ class CustomersFragment: Fragment(R.layout.customersfragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         toolbars.inflateMenu(R.menu.menu)
-        toolbars.setNavigationOnClickListener {
+        /*toolbars.setNavigationOnClickListener {
             NavHostFragment.findNavController(this)
                 .navigate(R.id.action_customersFragment_to_moduleFragment)
-        }
+        }**/
     }
 }

@@ -4,10 +4,10 @@ import com.mobbile.paul.bcmobiletrader.dao.AppDao
 import com.mobbile.paul.bcmobiletrader.network.RetrofitService
 import com.mobbile.paul.bcmobiletrader.ui.customers.repository.CustomerRepository
 import com.mobbile.paul.bcmobiletrader.ui.customers.repository.CustomerRepositoryImpl
-import com.mobbile.paul.bcmobiletrader.ui.modulefragment.repository.ModuleRepository
-import com.mobbile.paul.bcmobiletrader.ui.modulefragment.repository.ModuleRepositoryImpl
-import com.mobbile.paul.bcmobiletrader.ui.mainloginfragment.repository.LoginRepository
-import com.mobbile.paul.bcmobiletrader.ui.mainloginfragment.repository.LoginRepositoryImpl
+import com.mobbile.paul.bcmobiletrader.ui.module.repository.ModuleRepository
+import com.mobbile.paul.bcmobiletrader.ui.module.repository.ModuleRepositoryImpl
+import com.mobbile.paul.bcmobiletrader.ui.mainlogin.repository.LoginRepository
+import com.mobbile.paul.bcmobiletrader.ui.mainlogin.repository.LoginRepositoryImpl
 import com.mobbile.paul.bcmobiletrader.ui.productlist.repository.ProductListRepository
 import com.mobbile.paul.bcmobiletrader.ui.productlist.repository.ProductListRepositoryImpl
 import dagger.Module

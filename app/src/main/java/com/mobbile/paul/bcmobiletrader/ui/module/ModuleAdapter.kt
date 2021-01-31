@@ -1,15 +1,4 @@
-package com.mobbile.paul.bcmobiletrader.ui.modulefragment
-
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.navigation.findNavController
-import androidx.recyclerview.widget.RecyclerView
-import com.amulyakhare.textdrawable.TextDrawable
-import com.amulyakhare.textdrawable.util.ColorGenerator
-import com.mobbile.paul.bcmobiletrader.R
-import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.moduleadater_layout.view.*
+package com.mobbile.paul.bcmobiletrader.ui.module
 
 /*
 class ModuleAdapter (private var mItems: List<DomainDataDto>) :

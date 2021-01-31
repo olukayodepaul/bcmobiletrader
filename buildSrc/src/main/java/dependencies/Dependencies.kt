@@ -10,9 +10,12 @@ object Dependencies {
     val kotlin_coroutines_android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines_version}"
     val kotlin_coroutines_play_services = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:${Versions.coroutines_play_services}"
     val dagger = "com.google.dagger:dagger:${Versions.dagger}"
+
     val navigation_fragment = "androidx.navigation:navigation-fragment-ktx:${Versions.nav_components}"
-    val navigation_runtime = "androidx.navigation:navigation-runtime:${Versions.nav_components}"
     val navigation_ui = "androidx.navigation:navigation-ui-ktx:${Versions.nav_components}"
+
+    val navigation_runtime = "androidx.navigation:navigation-runtime:${Versions.nav_components}"
+
     val navigation_dynamic = "androidx.navigation:navigation-dynamic-features-fragment:${Versions.nav_components}"
     val material_dialogs = "com.afollestad.material-dialogs:core:${Versions.material_dialogs}"
     val material_dialogs_input = "com.afollestad.material-dialogs:input:${Versions.material_dialogs}"
@@ -24,8 +27,10 @@ object Dependencies {
     val firebase_auth = "com.google.firebase:firebase-auth:${Versions.firebase_auth}"
     val firebase_analytics = "com.google.firebase:firebase-analytics:${Versions.firebase_analytics}"
     val firebase_crashlytics = "com.crashlytics.sdk.android:crashlytics:${Versions.firebase_crashlytics}"
-   val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit2_version}"
+
+    val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit2_version}"
     val retrofit_gson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit2_version}"
+
     val markdown_processor = "com.yydcdut:markdown-processor:${Versions.markdown_processor}"
     val hilt_dagger = "com.google.dagger:hilt-android:${Versions.hilt_dagger_version}"
     val recycler_vew = "androidx.recyclerview:recyclerview:${Versions.recycle_view_version}"

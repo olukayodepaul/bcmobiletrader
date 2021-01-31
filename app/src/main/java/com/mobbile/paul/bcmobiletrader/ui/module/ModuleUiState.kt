@@ -1,4 +1,4 @@
-package com.mobbile.paul.bcmobiletrader.ui.modulefragment
+package com.mobbile.paul.bcmobiletrader.ui.module
 
 
 sealed class ModuleUiState {
