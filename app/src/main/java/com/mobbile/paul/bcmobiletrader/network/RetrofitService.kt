@@ -27,13 +27,10 @@ interface RetrofitService{
         @Query("employeeid") employeeid: Int
     ): CustomerResDto
 
-    @GET("/ba/api/productlist")
+    @GET("/ba/api/products")
     suspend fun getProductListByCompany(
-        @Query("employeeid") employeeid: Int,
-        @Query("companyid") companyid: Int,
-        @Query("subdivision") subdivision: Int
+        @Query("subdivisionid") subdivisionid: Int,
+        @Query("companyid") companyid: Int
     ): ProductResDto
-
-
 
 }

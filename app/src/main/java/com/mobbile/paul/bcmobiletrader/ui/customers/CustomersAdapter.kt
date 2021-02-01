@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.amulyakhare.textdrawable.TextDrawable
 import com.amulyakhare.textdrawable.util.ColorGenerator
 import com.mobbile.paul.bcmobiletrader.R
+import com.mobbile.paul.bcmobiletrader.ui.productlist.ProductListActivity
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.moduleadater_layout.view.*
 
@@ -44,7 +45,7 @@ class CustomersAdapter (private var mItems: List<CustomersListDto>, private val 
             containerView.tv_name.text = item.busines
 
             containerView.setOnClickListener {
-                val intent = Intent(context, CustomersActivity::class.java)
+                val intent = Intent(context, ProductListActivity::class.java)
                 context.startActivity(intent)
             }
         }

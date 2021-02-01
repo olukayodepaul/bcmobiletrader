@@ -17,7 +17,7 @@ class CustomersViewModel @ViewModelInject constructor(private val repository: Cu
         try {
             val data = repository.getCustomers(employeeid)
             _customerUiState.value = CustomerUiState.Success(data)
-            println("CustomersViewMode 1 ${data}")
+            //println("CustomersViewMode 1 ${data}")
         } catch (e: Exception) {
             _customerUiState.value = CustomerUiState.Error(e.message.toString())
         }

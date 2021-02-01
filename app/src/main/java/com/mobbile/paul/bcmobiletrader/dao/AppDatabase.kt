@@ -3,9 +3,9 @@ package com.mobbile.paul.bcmobiletrader.dao
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.mobbile.paul.bcmobiletrader.model.modulesDao
+import com.mobbile.paul.bcmobiletrader.ui.productlist.ProductListEntity
 
-@Database(entities = [modulesDao::class],version = 1)
+@Database(entities = [ProductListEntity::class],version = 1)
 @TypeConverters(Converters::class)
 abstract class AppDatabase: RoomDatabase() {
     abstract val appdao: AppDao
