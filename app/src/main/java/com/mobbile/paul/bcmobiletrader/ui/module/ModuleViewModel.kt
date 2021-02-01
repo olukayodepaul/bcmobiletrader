@@ -9,6 +9,7 @@ import kotlinx.coroutines.launch
 
 class ModuleViewModel @ViewModelInject constructor(private val repository: ModuleRepository): ViewModel() {
 
+
     private val _moduleUiState = MutableStateFlow<ModuleUiState>(ModuleUiState.Empty)
     val moduleUiState get() = _moduleUiState
 
@@ -17,13 +18,9 @@ class ModuleViewModel @ViewModelInject constructor(private val repository: Modul
         try {
             val data = repository.getModules(employeeid)
             _moduleUiState.value = ModuleUiState.Success(data)
-        } catch (exception: Exception)  {
-            _moduleUiState.value = ModuleUiState.Error("Wrong credentials")
+        } catch (e: Exception)  {
+            _moduleUiState.value = ModuleUiState.Error(e.message.toString())
         }
     }
-
-
-
-
 
 }

@@ -1,20 +1,17 @@
 package com.mobbile.paul.bcmobiletrader.ui.mainlogin
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.mobbile.paul.bcmobiletrader.R
 import com.mobbile.paul.bcmobiletrader.ui.module.ModuleActivity
-import com.mobbile.paul.bcmobiletrader.ui.module.ModuleUiState
 import com.mobbile.paul.bcmobiletrader.util.CacheError
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.loginfragment.*
+import kotlinx.android.synthetic.main.loginactivity.*
 import kotlinx.coroutines.flow.collect
 
 @AndroidEntryPoint
@@ -24,7 +21,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.loginfragment)
+        setContentView(R.layout.loginactivity)
         btnLogin.setOnClickListener(this)
         loginStateFlow()
     }
@@ -61,7 +58,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                             intent.putExtra("setAllUserInfoData", it.data.data)
                             startActivity(intent)
                             finish()
-
                         }
                         is LoginUiState.Error -> {
                             progressBar.isVisible = false

@@ -10,7 +10,7 @@
     >
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbars"
+        android:id="@+id/_customers_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/bp"
@@ -23,17 +23,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/ballReleasegb"
-        android:layout_below="@+id/toolbars"
+        android:layout_below="@+id/_customers_toolbar"
         />
 
     <ProgressBar
-        android:id="@+id/progressBar"
+        android:id="@+id/progressCust"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:indeterminateTint="@color/bp"
         android:indeterminate="true"
-        android:layout_below="@+id/toolbars"
+        android:layout_below="@+id/tv_customers"
         android:layout_margin="20dp"
+        android:visibility="invisible"
         />
 
 </RelativeLayout>

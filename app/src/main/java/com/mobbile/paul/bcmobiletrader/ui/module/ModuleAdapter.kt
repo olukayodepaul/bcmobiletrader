@@ -1,7 +1,20 @@
 package com.mobbile.paul.bcmobiletrader.ui.module
 
-/*
-class ModuleAdapter (private var mItems: List<DomainDataDto>) :
+import android.content.Context
+import android.content.Intent
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.amulyakhare.textdrawable.TextDrawable
+import com.amulyakhare.textdrawable.util.ColorGenerator
+import com.mobbile.paul.bcmobiletrader.R
+import com.mobbile.paul.bcmobiletrader.ui.customers.CustomersActivity
+import kotlinx.android.extensions.LayoutContainer
+import kotlinx.android.synthetic.main.moduleadater_layout.view.*
+
+
+class ModuleAdapter (private var mItems: List<ModulesListDto>,  private val context: Context) :
     RecyclerView.Adapter<ModuleAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
@@ -23,19 +36,21 @@ class ModuleAdapter (private var mItems: List<DomainDataDto>) :
     inner class ViewHolder(override val containerView: View) :
         RecyclerView.ViewHolder(containerView),
         LayoutContainer {
-        fun bind(item: DomainDataDto) {
+        fun bind(item: ModulesListDto) {
 
-            val letter: String? = item.title!!.substring(0, 1)
+            val letter: String? = item.name!!.substring(0, 1)
             val generator = ColorGenerator.MATERIAL
             val drawable = TextDrawable.builder()
                 .buildRound(letter, generator.getRandomColor())
             containerView.imageView.setImageDrawable(drawable)
-            containerView.tv_name.text = item.publisher
+            containerView.tv_name.text = item.name
 
             containerView.setOnClickListener {
-                it.findNavController().navigate(R.id.sentToSecondFragment);
+                val intent = Intent(context, CustomersActivity::class.java)
+                context.startActivity(intent)
             }
+
         }
     }
 
-}*/
+}
