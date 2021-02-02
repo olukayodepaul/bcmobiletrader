@@ -1,7 +1,7 @@
 package com.mobbile.paul.bcmobiletrader.ui.mainlogin.repository
 
-import com.mobbile.paul.bcmobiletrader.dao.AppDao
-import com.mobbile.paul.bcmobiletrader.network.RetrofitService
+import com.mobbile.paul.bcmobiletrader.datasource.AppDao
+import com.mobbile.paul.bcmobiletrader.datasource.RetrofitService
 import com.mobbile.paul.bcmobiletrader.ui.mainlogin.UserLoginRes
 
 

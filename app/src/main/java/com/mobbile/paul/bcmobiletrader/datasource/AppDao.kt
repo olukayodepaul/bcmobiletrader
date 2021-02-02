@@ -1,4 +1,4 @@
-package com.mobbile.paul.bcmobiletrader.dao
+package com.mobbile.paul.bcmobiletrader.datasource
 
 import androidx.room.Dao
 import androidx.room.Insert
@@ -11,6 +11,9 @@ interface AppDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertIntoProduct(modules: List<ProductListEntity>)
+
+    @Query("SELECT * FROM products")
+    suspend fun selectFromProduct(): List<ProductListEntity>
 
 }
 

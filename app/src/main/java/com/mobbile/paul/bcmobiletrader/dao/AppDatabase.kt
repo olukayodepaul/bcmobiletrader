@@ -3,6 +3,7 @@ package com.mobbile.paul.bcmobiletrader.dao
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.mobbile.paul.bcmobiletrader.datasource.AppDao
 import com.mobbile.paul.bcmobiletrader.ui.productlist.ProductListEntity
 
 @Database(entities = [ProductListEntity::class],version = 1)

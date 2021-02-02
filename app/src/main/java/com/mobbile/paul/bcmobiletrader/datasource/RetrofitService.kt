@@ -1,4 +1,4 @@
-package com.mobbile.paul.bcmobiletrader.network
+package com.mobbile.paul.bcmobiletrader.datasource
 
 
 import com.mobbile.paul.bcmobiletrader.ui.customers.CustomerResDto

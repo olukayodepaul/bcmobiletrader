@@ -1,7 +1,7 @@
 package com.mobbile.paul.bcmobiletrader.ui.productlist.repository
 
-import com.mobbile.paul.bcmobiletrader.dao.AppDao
-import com.mobbile.paul.bcmobiletrader.network.RetrofitService
+import com.mobbile.paul.bcmobiletrader.datasource.AppDao
+import com.mobbile.paul.bcmobiletrader.datasource.RetrofitService
 import com.mobbile.paul.bcmobiletrader.ui.productlist.ProductListEntity
 import com.mobbile.paul.bcmobiletrader.ui.productlist.ProductResDto
 
@@ -21,5 +21,8 @@ class ProductListRepositoryImpl(
         return appdoa.insertIntoProduct(modules)
     }
 
+    override suspend fun selectFromProduct(): List<ProductListEntity> {
+        return appdoa.selectFromProduct()
+    }
 
 }

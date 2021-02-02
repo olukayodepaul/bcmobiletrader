@@ -18,16 +18,20 @@ class ProductListViewModel @ViewModelInject constructor(private val repository: 
         _productsUiState.value = ProductsUiState.Loading
         try {
 
-            val data = repository.getProductListByCompany(subdivisionid, companyid)
+            val checkEmpty = repository.selectFromProduct()
 
-            val mappers = repository.insertIntoProduct(data.products.map {
-                it.toProductListEntity()
-            })
+            if (checkEmpty.isEmpty()) {
+                val data = repository.getProductListByCompany(subdivisionid, companyid)
+                repository.insertIntoProduct(data.products.map { it.toProductListEntity() })
+                _productsUiState.value = ProductsUiState.Success(repository.selectFromProduct())
+                return@launch
+            }
 
-            println("CHECKMAPPER $mappers")
+            _productsUiState.value = ProductsUiState.Success(repository.selectFromProduct())
 
         } catch (e: Exception) {
             _productsUiState.value = ProductsUiState.Error(e.message.toString())
         }
     }
+
 }

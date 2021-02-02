@@ -21,5 +21,7 @@ data class ProductListDto (
     @SerializedName("qty")
     var qty: Int? = 0,
     @SerializedName("products")
-    var products: String? = null
+    var products: String? = null,
+    @SerializedName("checked")
+    var checked: Int? = 0
 )

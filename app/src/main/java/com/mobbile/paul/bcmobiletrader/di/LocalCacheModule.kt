@@ -2,7 +2,7 @@ package com.mobbile.paul.bcmobiletrader.di
 
 import android.app.Application
 import androidx.room.Room
-import com.mobbile.paul.bcmobiletrader.dao.AppDao
+import com.mobbile.paul.bcmobiletrader.datasource.AppDao
 import com.mobbile.paul.bcmobiletrader.dao.AppDatabase
 import dagger.Module
 import dagger.Provides
