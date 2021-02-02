@@ -11,33 +11,17 @@
     android:background="@color/rippleEffectColor">
 
     <ImageView
+        android:id="@+id/_id_check"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        app:srcCompat="@mipmap/ic_launcher"
-        android:id="@+id/_id_check"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="10dp"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintEnd_toStartOf="@+id/icons_images"
-        app:layout_constraintHorizontal_bias="0.0"
-        />
-
-    <ImageView
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        app:srcCompat="@drawable/arry_left"
-        android:id="@+id/icons_images"
-        android:layout_marginEnd="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="20dp"
-        android:padding="5dp"/>
+        app:srcCompat="@mipmap/ic_launcher" />
 
     <RelativeLayout
         android:layout_width="0dp"

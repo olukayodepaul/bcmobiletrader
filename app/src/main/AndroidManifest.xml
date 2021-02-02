@@ -17,6 +17,7 @@
         <activity android:name=".ui.module.ModuleActivity"/>
         <activity android:name=".ui.customers.CustomersActivity"/>
         <activity android:name=".ui.productlist.ProductListActivity"/>
+        <activity android:name=".ui.salesentries.SalesEntryActivity"/>
         <activity android:name=".ui.mainlogin.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

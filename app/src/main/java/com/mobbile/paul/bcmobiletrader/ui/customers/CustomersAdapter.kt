@@ -49,7 +49,7 @@ class CustomersAdapter(
             val drawable = TextDrawable.builder()
                 .buildRound(letter, generator.getRandomColor())
             containerView._id_check.setImageDrawable(drawable)
-            containerView.tv_name_customer.text = item.busines
+            containerView._tv_name_sales_entry.text = item.busines
 
             containerView.icons_images.setOnClickListener {
                 showPopup(containerView, item, clickListener)

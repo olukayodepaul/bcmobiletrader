@@ -14,5 +14,10 @@ data class ProductListEntity (
     var code: String? = null,
     var qty: Int? = 0,
     var products: String? = null,
-    var checked: Int? = 0
+    var checked: Int? = 0,
+    var sheffstock: Int? = 0,
+    var backroomstock: Int? = 0,
+    var qtypurchase: Int? = 0
 )
+
+

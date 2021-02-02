@@ -18,4 +18,7 @@ interface AppDao {
     @Query("UPDATE products SET checked=:checked WHERE code = :code ")
     suspend fun checkProduct(checked: Int, code: String)
 
+    @Query("SELECT * FROM products WHERE checked = 1")
+    suspend fun selectCheckProduct(): List<ProductListEntity>
+
 }

@@ -10,6 +10,8 @@ import com.mobbile.paul.bcmobiletrader.ui.mainlogin.repository.LoginRepository
 import com.mobbile.paul.bcmobiletrader.ui.mainlogin.repository.LoginRepositoryImpl
 import com.mobbile.paul.bcmobiletrader.ui.productlist.repository.ProductListRepository
 import com.mobbile.paul.bcmobiletrader.ui.productlist.repository.ProductListRepositoryImpl
+import com.mobbile.paul.bcmobiletrader.ui.salesentries.repository.SalesEntryRepository
+import com.mobbile.paul.bcmobiletrader.ui.salesentries.repository.SalesEntryRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -64,4 +66,14 @@ object AppRepository {
         )
     }
 
+    @Singleton
+    @Provides
+    fun provideSalesEntrypository(
+        retrofitService: RetrofitService,
+        appdoa: AppDao
+    ): SalesEntryRepository {
+        return SalesEntryRepositoryImpl(
+            retrofitService, appdoa
+        )
+    }
 }

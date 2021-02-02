@@ -43,7 +43,7 @@ class ModuleAdapter (private var mItems: List<ModulesListDto>,  private val cont
             val drawable = TextDrawable.builder()
                 .buildRound(letter, generator.getRandomColor())
             containerView._id_check.setImageDrawable(drawable)
-            containerView.tv_name_customer.text = item.name
+            containerView._tv_name_sales_entry.text = item.name
 
             containerView.setOnClickListener {
                 val intent = Intent(context, CustomersActivity::class.java)

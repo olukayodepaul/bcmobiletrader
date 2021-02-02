@@ -54,7 +54,7 @@ android:background="@color/rippleEffectColor">
         tools:ignore="MissingConstraints">
 
         <TextView
-            android:id="@+id/tv_name_customer"
+            android:id="@+id/_tv_name_sales_entry"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_regular"
@@ -63,7 +63,7 @@ android:background="@color/rippleEffectColor">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="20dp"
-            android:layout_below="@+id/tv_name_customer">
+            android:layout_below="@+id/_tv_name_sales_entry">
 
             <TextView
                 android:id="@+id/tv_titles"
