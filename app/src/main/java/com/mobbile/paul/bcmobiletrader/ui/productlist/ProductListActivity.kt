@@ -92,5 +92,6 @@ class ProductListActivity : AppCompatActivity() {
     private fun checkIfCheckboxIsCheked(code:String, ckeck:Int) {
         viewModel.checkSelectProducts(ckeck, code)
     }
+
 }
 

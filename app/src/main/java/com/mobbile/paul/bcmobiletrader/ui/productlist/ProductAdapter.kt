@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mobbile.paul.bcmobiletrader.R
-import com.mobbile.paul.bcmobiletrader.ui.customers.CustomersListDto
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.product_adapter_layout.view.*
 import kotlin.reflect.KFunction2
