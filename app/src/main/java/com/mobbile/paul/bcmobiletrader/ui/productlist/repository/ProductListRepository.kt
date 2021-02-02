@@ -8,4 +8,5 @@ interface ProductListRepository {
     suspend fun getProductListByCompany(subdivisionid: Int, companyid: Int): ProductResDto
     suspend fun insertIntoProduct(modules: List<ProductListEntity>)
     suspend fun selectFromProduct(): List<ProductListEntity>
+    suspend fun checkProduct(checked: Int, code: String)
 }

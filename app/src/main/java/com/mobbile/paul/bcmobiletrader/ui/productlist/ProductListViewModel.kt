@@ -34,4 +34,13 @@ class ProductListViewModel @ViewModelInject constructor(private val repository: 
         }
     }
 
+    //This is to check the selected item
+    fun checkSelectProducts(checked: Int, code: String) = viewModelScope.launch {
+        try{
+            repository.checkProduct(checked, code)
+        }catch (e: Exception) {
+
+        }
+    }
+
 }

@@ -41,34 +41,8 @@ class ProductListActivity : AppCompatActivity() {
         }
     }
 
-  /*  private fun initSearchView(menu: Menu) {
-        applicationContext?.apply {
-            val searchManager: SearchManager = getSystemService(SEARCH_SERVICE) as SearchManager
-            searchView = menu.findItem(R.id.menu_search).actionView as SearchView
-            searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
-            searchView.maxWidth = Integer.MAX_VALUE
-            searchView.setIconifiedByDefault(true)
-            searchView.isSubmitButtonEnabled = true
-        }
-
-        val searchPlate = searchView.findViewById(R.id.search_src_text) as EditText
-        searchPlate.setOnEditorActionListener { v, actionId, event ->
-
-            if (actionId == EditorInfo.IME_ACTION_SEARCH || actionId == EditorInfo.IME_ACTION_SEARCH) {
-                val searchQuery = v.text.toString()
-
-            }
-            true
-        }
-    }*/
-
-    private fun resetUi() {
-        tv_product.smoothScrollToPosition(0)
-    }
-
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.productmenu, menu)
-        /*initSearchView(menu!!)*/
         return true
     }
 
@@ -99,7 +73,7 @@ class ProductListActivity : AppCompatActivity() {
 
                         is ProductsUiState.Success -> {
                             productProgressBar.isVisible = false
-                            nAdapter = ProductAdapter(it.data, applicationContext)
+                            nAdapter = ProductAdapter(it.data, applicationContext,::checkIfCheckboxIsCheked)
                             nAdapter.notifyDataSetChanged()
                             tv_product.setItemViewCacheSize(it.data.size)
                             tv_product.adapter = nAdapter
@@ -115,6 +89,8 @@ class ProductListActivity : AppCompatActivity() {
         }
     }
 
-
+    private fun checkIfCheckboxIsCheked(code:String, ckeck:Int) {
+        viewModel.checkSelectProducts(ckeck, code)
+    }
 }
 

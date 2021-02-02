@@ -25,4 +25,7 @@ class ProductListRepositoryImpl(
         return appdoa.selectFromProduct()
     }
 
+    override suspend fun checkProduct(checked: Int, code: String) {
+        return appdoa.checkProduct(checked, code)
+    }
 }

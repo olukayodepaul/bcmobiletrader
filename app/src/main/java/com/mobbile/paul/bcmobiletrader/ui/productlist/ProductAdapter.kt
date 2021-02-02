@@ -6,12 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mobbile.paul.bcmobiletrader.R
+import com.mobbile.paul.bcmobiletrader.ui.customers.CustomersListDto
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.product_adapter_layout.view.*
+import kotlin.reflect.KFunction2
 
 
-class ProductAdapter (private var mItems: List<ProductListEntity>, private val context: Context) :
-    RecyclerView.Adapter<ProductAdapter.ViewHolder>(){
+class ProductAdapter(
+    private var mItems: List<ProductListEntity>,
+    private val context: Context,
+    private val clickListener: KFunction2<String, Int, Unit>
+) :
+    RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
 
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
@@ -23,7 +29,7 @@ class ProductAdapter (private var mItems: List<ProductListEntity>, private val c
 
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
         val item = mItems[p1]
-        p0.bind(item)
+        p0.bind(item, clickListener)
     }
 
     override fun getItemCount(): Int {
@@ -33,12 +39,20 @@ class ProductAdapter (private var mItems: List<ProductListEntity>, private val c
     inner class ViewHolder(override val containerView: View) :
         RecyclerView.ViewHolder(containerView),
         LayoutContainer {
-        fun bind(item: ProductListEntity) {
+        fun bind(
+            item: ProductListEntity,
+            clickListener: KFunction2<String, Int, Unit>
+        ) {
             containerView.tv_name_product.text = item.name
-            containerView.setOnClickListener {
+            containerView._id_check.isChecked = item.checked != 0
 
+            containerView._id_check.setOnCheckedChangeListener { buttonView, isChecked ->
+                if (isChecked) {
+                    clickListener(item.code!!, 1)
+                }else{
+                    clickListener(item.code!!, 0)
+                }
             }
         }
     }
-
 }

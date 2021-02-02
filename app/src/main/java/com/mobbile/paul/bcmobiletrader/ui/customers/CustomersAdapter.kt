@@ -48,7 +48,7 @@ class CustomersAdapter(
             val generator = ColorGenerator.MATERIAL
             val drawable = TextDrawable.builder()
                 .buildRound(letter, generator.getRandomColor())
-            containerView.imageView.setImageDrawable(drawable)
+            containerView._id_check.setImageDrawable(drawable)
             containerView.tv_name_customer.text = item.busines
 
             containerView.icons_images.setOnClickListener {
