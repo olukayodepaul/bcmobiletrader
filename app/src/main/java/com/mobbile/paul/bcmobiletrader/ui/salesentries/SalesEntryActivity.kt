@@ -25,6 +25,11 @@ class SalesEntryActivity: AppCompatActivity() {
         viewModel.fetchSalesEntryProduct()
         initAdapter()
         salesentryStateFlow()
+
+        _sales_entry_toolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
+
     }
 
     private fun initAdapter() {
@@ -57,8 +62,4 @@ class SalesEntryActivity: AppCompatActivity() {
             }
         }
     }
-
-
-
-
 }

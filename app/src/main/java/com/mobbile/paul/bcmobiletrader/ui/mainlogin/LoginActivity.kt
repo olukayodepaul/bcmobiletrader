@@ -42,6 +42,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             viewModel.loginUiState.collect {
                 it.let {
                     when (it) {
+
                         is LoginUiState.Loading -> {
                             progressBar.isVisible = true
                         }
@@ -53,16 +54,19 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                                 return@collect
                             }
 
+                            viewModel.livePreference(it.data)
                             val intent = Intent(applicationContext, ModuleActivity::class.java)
                             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                             intent.putExtra("setAllUserInfoData", it.data.data)
                             startActivity(intent)
                             finish()
                         }
+
                         is LoginUiState.Error -> {
                             progressBar.isVisible = false
                             CacheError(applicationContext, it.message).toast
                         }
+
                     }
                 }
             }

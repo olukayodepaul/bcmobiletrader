@@ -9,5 +9,6 @@
     <color name="ballReleasegb">#CACACA</color>
     <color name="rippleEffectColor">#FFFFFF</color>
     <color name="blue_nblac">#111c22</color>
+    <color name="bg_black">#000000</color>
 
 </resources>

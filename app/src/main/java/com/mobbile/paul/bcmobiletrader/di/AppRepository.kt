@@ -1,5 +1,6 @@
 package com.mobbile.paul.bcmobiletrader.di
 
+import android.content.SharedPreferences
 import com.mobbile.paul.bcmobiletrader.datasource.AppDao
 import com.mobbile.paul.bcmobiletrader.datasource.RetrofitService
 import com.mobbile.paul.bcmobiletrader.ui.customers.repository.CustomerRepository
@@ -26,10 +27,11 @@ object AppRepository {
     @Provides
     fun provideLoginRepository(
         retrofitService: RetrofitService,
-        appdoa: AppDao
+        appdoa: AppDao,
+        sharedPrefsEditor: SharedPreferences.Editor
     ): LoginRepository {
         return LoginRepositoryImpl(
-            retrofitService,appdoa
+            retrofitService,appdoa, sharedPrefsEditor
         )
     }
 

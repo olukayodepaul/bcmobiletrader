@@ -4,14 +4,15 @@ import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
-
 data class UserLoginRes (
     @SerializedName("statsus")
     var statsus: Int = 0,
     @SerializedName("msg")
     var msg: String? = null,
     @SerializedName("data")
-    var data:UserLogin? = null
+    var data:UserLogin? = null,
+    @SerializedName("date")
+    var date:String? = null
 )
 
 @Parcelize

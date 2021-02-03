@@ -37,7 +37,7 @@ class SalesEntryAdapter(
         RecyclerView.ViewHolder(containerView),
         LayoutContainer {
         fun bind(item: ProductListEntity) {
-            containerView._tv_name_sales_entry.text = item.name
+            //containerView.en_text_content.text = item.name
         }
     }
 }

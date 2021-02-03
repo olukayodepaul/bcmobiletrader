@@ -1,7 +1,11 @@
 package com.mobbile.paul.bcmobiletrader.di
 
+import android.app.Application
+import android.content.Context
+import android.content.SharedPreferences
 import com.google.gson.GsonBuilder
 import com.mobbile.paul.bcmobiletrader.datasource.RetrofitService
+import com.mobbile.paul.bcmobiletrader.util.PreferenceKeys
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,7 +18,17 @@ import javax.inject.Singleton
 @InstallIn(ApplicationComponent::class)
 object NetworkModule {
 
+    @Singleton
+    @Provides
+    fun provideSharedPreferences(application: Application): SharedPreferences {
+        return application.getSharedPreferences(PreferenceKeys.APP_PREFERENCES, Context.MODE_PRIVATE)
+    }
 
+    @Singleton
+    @Provides
+    fun provideSharedPrefsEditor(sharedPreferences: SharedPreferences): SharedPreferences.Editor {
+        return sharedPreferences.edit()
+    }
 
     @Singleton
     @Provides
