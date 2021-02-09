@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.amulyakhare.textdrawable.TextDrawable
 import com.amulyakhare.textdrawable.util.ColorGenerator
 import com.mobbile.paul.bcmobiletrader.R
+import com.mobbile.paul.bcmobiletrader.ui.attendant.Attendant
 import com.mobbile.paul.bcmobiletrader.ui.customers.CustomersActivity
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.moduleadater_layout.view.*
@@ -18,7 +19,6 @@ class ModuleAdapter (private var mItems: List<ModulesListDto>,  private val cont
     RecyclerView.Adapter<ModuleAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
-        println("RECYCLERTEST $p1 $p0")
         val v = LayoutInflater.from(p0.context)
             .inflate(R.layout.moduleadater_layout, p0, false)
         return ViewHolder(v)
@@ -46,11 +46,17 @@ class ModuleAdapter (private var mItems: List<ModulesListDto>,  private val cont
             containerView._tv_name_sales_entry.text = item.name
 
             containerView.setOnClickListener {
-                val intent = Intent(context, CustomersActivity::class.java)
-                context.startActivity(intent)
+                when(item.navid){
+                    1->{
+                        val intent = Intent(context, Attendant::class.java)
+                        context.startActivity(intent)
+                    }
+                    2->{
+                        val intent = Intent(context, CustomersActivity::class.java)
+                        context.startActivity(intent)
+                    }
+                }
             }
-
         }
     }
-
 }

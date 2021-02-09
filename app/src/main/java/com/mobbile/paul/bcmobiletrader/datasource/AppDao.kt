@@ -8,7 +8,6 @@ import com.mobbile.paul.bcmobiletrader.ui.productlist.ProductListEntity
 
 @Dao
 interface AppDao {
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertIntoProduct(modules: List<ProductListEntity>)
 
@@ -20,5 +19,4 @@ interface AppDao {
 
     @Query("SELECT * FROM products WHERE checked = 1")
     suspend fun selectCheckProduct(): List<ProductListEntity>
-
 }

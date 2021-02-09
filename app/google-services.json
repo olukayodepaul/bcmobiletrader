@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "109114245947",
+    "project_id": "bcmobiletraders",
+    "storage_bucket": "bcmobiletraders.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:109114245947:android:2f9ef4391da5a44e86ed1e",
+        "android_client_info": {
+          "package_name": "com.mobbile.paul.bcmobiletrader"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "109114245947-a1cgvs1pqcg2nn7di23pfugp3sgmqhhb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApeExrITyIKBpD0qedFbKr4EOgGz5d2Ak"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "109114245947-a1cgvs1pqcg2nn7di23pfugp3sgmqhhb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

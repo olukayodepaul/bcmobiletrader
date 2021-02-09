@@ -27,8 +27,8 @@ android:background="@color/rippleEffectColor">
     />
 
 <ImageView
-    android:layout_width="35dp"
-    android:layout_height="35dp"
+    android:layout_width="40dp"
+    android:layout_height="40dp"
     app:srcCompat="@drawable/ic_more_vert_black_24dp"
     android:id="@+id/icons_images"
     android:layout_marginEnd="5dp"
@@ -58,46 +58,28 @@ android:background="@color/rippleEffectColor">
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_regular"
-            android:textSize="@dimen/sales_title" />
+            android:textSize="20sp"
+            android:textColor="@color/menu_bg"
+            />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_height="match_parent"
             android:layout_below="@+id/_tv_name_sales_entry">
 
             <TextView
-                android:id="@+id/tv_titles"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:id="@+id/left_edcode"
+                android:layout_width="wrap_content"
+                android:layout_height="21dp"
                 android:text="TextView"
-                android:textColor="@color/blue_nblac"
-                android:textSize="11sp"
-                app:layout_constraintEnd_toStartOf="@+id/timeago"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="2dp" />
+                tools:layout_editor_absoluteY="0dp"
+                android:fontFamily="@font/roboto_regular"
+                android:textSize="15sp"
+                android:textColor="@color/menu_bg"
+                android:layout_marginTop="15dp"/>
 
-            <TextView
-                android:id="@+id/timeago"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textAlignment="textEnd"
-                android:textSize="11sp"
-                app:layout_constraintEnd_toStartOf="@+id/tv_sequence"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/tv_titles" />
-
-            <TextView
-                android:id="@+id/tv_sequence"
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textAlignment="textEnd"
-                android:textSize="11sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/timeago" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

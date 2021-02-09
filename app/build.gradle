@@ -1,7 +1,4 @@
-import dependencies.AndroidTestDependencies
 import dependencies.Dependencies
-import dependencies.Application
-import dependencies.Versions
 import dependencies.Java
 import dependencies.SupportDependencies
 import dependencies.AnnotationProcessing
@@ -12,6 +9,8 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
 apply plugin: 'androidx.navigation.safeargs.kotlin'
+apply plugin: 'com.android.application'
+
 
 android {
     compileSdkVersion 30
@@ -25,6 +24,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
     }
 
     buildTypes {
@@ -46,31 +46,36 @@ android {
                 "-Xuse-experimental=kotlinx.coroutines.TheAnnotationYouWantToDisable"
         ]
     }
+
+    packagingOptions {
+        exclude 'META-INF/atomicfu.kotlin_module'
+    }
 }
 
 dependencies {
 
-
+    //Support
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    // Kotlin
-    implementation Dependencies.kotlin_standard_library
-    implementation Dependencies.kotlin_reflect
-    implementation Dependencies.ktx
-
-    // Support
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation SupportDependencies.android_Legacy
     implementation SupportDependencies.appcompat
     implementation SupportDependencies.constraintlayout
     implementation SupportDependencies.material_design
     implementation SupportDependencies.swipe_refresh_layout
 
-    //hilt
-    implementation Dependencies.hilt_dagger
-    kapt AnnotationProcessing.hilt_compiler
 
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    // Kotlin
+    implementation Dependencies.kotlin_standard_library
+    implementation Dependencies.kotlin_reflect
+    implementation Dependencies.ktx
+
+    //Hilt Component
+    implementation Dependencies.hilt_dagger
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-
+    kapt AnnotationProcessing.hilt_compiler
+    implementation Dependencies.hilt_viewModel
+    kapt Dependencies.hilt_viewModel_kapt
 
     //navigation component
     implementation Dependencies.navigation_fragment
@@ -82,20 +87,20 @@ dependencies {
     //implementation 'com.google.code.gson:gson:2.8.5'
     //implementation 'com.squareup.okhttp3:logging-interceptor:3.12.0'
 
-    // -- Lifecycle Components (ViewModel, LiveData and ReactiveStreams)
+    // Lifecycle components
+    implementation Dependencies.lifecycle_common
+    implementation Dependencies.lifecycle_liveData
+    implementation Dependencies.lifecycleViewModel
     implementation Dependencies.life_cycle_extension
     implementation Dependencies.lifecycle_runtime
-    implementation Dependencies.lifecycle
-    implementation Dependencies.lifecycle_common
     kapt AnnotationProcessing.lifecycle_compiler
-    //implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
 
-    // -- Coroutines
+    //Coroutines Component
     implementation Dependencies.kotlin_coroutines
     implementation Dependencies.kotlin_coroutines_android
 
     // RecyclerView
-    implementation Dependencies.recycler_vew
+    implementation Dependencies.recycler_view
 
     //glide
     implementation Dependencies.glides
@@ -104,15 +109,14 @@ dependencies {
     //Leak Canary (detecting memory leaks)
     debugImplementation Dependencies.leak_canary
 
-    implementation Dependencies.hilt_viewModel
-    kapt Dependencies.hilt_viewModel_kapt
 
-    //Coroutine for room
+    // Room components
     implementation Dependencies.room_runtime
     implementation Dependencies.room_ktx
     kapt AnnotationProcessing.room_compiler
 
     //image circles
     implementation Dependencies.colorGenerator
+
 
 }

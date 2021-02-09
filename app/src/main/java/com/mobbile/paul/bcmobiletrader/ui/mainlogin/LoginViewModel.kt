@@ -22,6 +22,7 @@ class LoginViewModel @ViewModelInject constructor(private val repository: LoginR
             try {
                 val data = repository.login(username, password, imei)
                 _loginUiState.value = LoginUiState.Success(data)
+
             } catch (e: Throwable) {
                 _loginUiState.value = LoginUiState.Error(e.message!!)
             }
@@ -32,8 +33,9 @@ class LoginViewModel @ViewModelInject constructor(private val repository: LoginR
         repository.sharedPrefsEditor().apply()
         val editor = repository.sharedPrefsEditor()
         editor.clear()
-        editor.putInt("_employee_code", userLogin.data!!.id!!)
-        editor.putString("_transDate", userLogin.date)
+        editor.putInt("employeeCode", userLogin.data!!.id!!)
+        editor.putString("transDate", userLogin.date)
+        editor.putString("customerNumber", userLogin.data!!.customerno)
     }
 
 }

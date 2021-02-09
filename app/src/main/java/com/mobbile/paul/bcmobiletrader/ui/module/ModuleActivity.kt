@@ -1,5 +1,6 @@
 package com.mobbile.paul.bcmobiletrader.ui.module
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -24,10 +25,12 @@ class ModuleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.moduleactivity)
-        getAllUserInfoData = intent.extras!!.getParcelable("setAllUserInfoData")
+
+        getAllUserInfoData = intent.extras!!.getParcelable("setAllUserInfoData")!!
         viewModel.fetchUserModule(getAllUserInfoData!!.id!!)
         modulesStateFlow()
         initAdapter()
+
     }
 
     private fun initAdapter() {

@@ -60,13 +60,13 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                             intent.putExtra("setAllUserInfoData", it.data.data)
                             startActivity(intent)
                             finish()
+
                         }
 
                         is LoginUiState.Error -> {
                             progressBar.isVisible = false
                             CacheError(applicationContext, it.message).toast
                         }
-
                     }
                 }
             }

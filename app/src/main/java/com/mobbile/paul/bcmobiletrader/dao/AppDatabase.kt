@@ -6,7 +6,7 @@ import androidx.room.TypeConverters
 import com.mobbile.paul.bcmobiletrader.datasource.AppDao
 import com.mobbile.paul.bcmobiletrader.ui.productlist.ProductListEntity
 
-@Database(entities = [ProductListEntity::class],version = 1)
+@Database(entities = arrayOf(ProductListEntity::class),version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class AppDatabase: RoomDatabase() {
     abstract val appdao: AppDao

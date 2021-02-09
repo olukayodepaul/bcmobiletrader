@@ -50,10 +50,11 @@ object AppRepository {
     @Provides
     fun provideCustomerRepository(
         retrofitService: RetrofitService,
-        appdoa: AppDao
+        appdoa: AppDao,
+        sharedPreferences: SharedPreferences
     ): CustomerRepository {
         return CustomerRepositoryImpl(
-            retrofitService, appdoa
+            retrofitService, appdoa, sharedPreferences
         )
     }
 

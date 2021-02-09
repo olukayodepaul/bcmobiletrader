@@ -10,5 +10,5 @@
     <color name="rippleEffectColor">#FFFFFF</color>
     <color name="blue_nblac">#111c22</color>
     <color name="bg_black">#000000</color>
-
+    <color name="menu_bg">#333B42</color>
 </resources>

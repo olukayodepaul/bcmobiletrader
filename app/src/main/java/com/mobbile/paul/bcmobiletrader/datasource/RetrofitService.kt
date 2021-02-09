@@ -24,7 +24,7 @@ interface RetrofitService{
 
     @GET("/ba/api/customers")
     suspend fun getCustomers(
-        @Query("employeeid") employeeid: Int
+        @Query("custno") custno: String
     ): CustomerResDto
 
     @GET("/ba/api/products")

@@ -11,6 +11,6 @@
     <dimen name="nav_header_height">176dp</dimen>
     <dimen name="eleviator">4dp</dimen>
     <dimen name="sales_name">15sp</dimen>
-    <dimen name="sales_title">20sp</dimen>
+    <dimen name="sales_title">23sp</dimen>
     <dimen name="font_orders">18sp</dimen>
 </resources>

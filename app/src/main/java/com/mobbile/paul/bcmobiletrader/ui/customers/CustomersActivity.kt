@@ -27,13 +27,14 @@ class CustomersActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.customersactivity)
-        viewModel.fetchUserCustomers(2)
+        viewModel.fetchUserCustomers()
         initAdapter()
         customerStateFlow()
 
         _customers_toolbar.setNavigationOnClickListener {
            onBackPressed()
         }
+
     }
 
     private fun initAdapter() {

@@ -10,7 +10,11 @@ import com.amulyakhare.textdrawable.TextDrawable
 import com.amulyakhare.textdrawable.util.ColorGenerator
 import com.mobbile.paul.bcmobiletrader.R
 import kotlinx.android.extensions.LayoutContainer
+import kotlinx.android.synthetic.main.customeradapter.view.*
 import kotlinx.android.synthetic.main.moduleadater_layout.view.*
+import kotlinx.android.synthetic.main.moduleadater_layout.view._id_check
+import kotlinx.android.synthetic.main.moduleadater_layout.view._tv_name_sales_entry
+import kotlinx.android.synthetic.main.moduleadater_layout.view.icons_images
 import kotlin.reflect.KFunction2
 
 
@@ -44,12 +48,13 @@ class CustomersAdapter(
         fun bind(
             item: CustomersListDto,
             clickListener: KFunction2<CustomersListDto, String, Unit>) {
-            val letter: String? = item.busines!!.substring(0, 1)
+            val letter: String? = item.custname!!.substring(0, 1)
             val generator = ColorGenerator.MATERIAL
             val drawable = TextDrawable.builder()
                 .buildRound(letter, generator.getRandomColor())
             containerView._id_check.setImageDrawable(drawable)
-            containerView._tv_name_sales_entry.text = item.busines
+            containerView._tv_name_sales_entry.text = item.custname
+            containerView.left_edcode.text = item.custno
 
             containerView.icons_images.setOnClickListener {
                 showPopup(containerView, item, clickListener)
