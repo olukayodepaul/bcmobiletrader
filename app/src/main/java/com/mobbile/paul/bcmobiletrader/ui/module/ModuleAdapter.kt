@@ -49,10 +49,12 @@ class ModuleAdapter (private var mItems: List<ModulesListDto>,  private val cont
                 when(item.navid){
                     1->{
                         val intent = Intent(context, Attendant::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                         context.startActivity(intent)
                     }
                     2->{
                         val intent = Intent(context, CustomersActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                         context.startActivity(intent)
                     }
                 }

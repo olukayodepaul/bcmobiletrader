@@ -11,4 +11,5 @@
     <color name="blue_nblac">#111c22</color>
     <color name="bg_black">#000000</color>
     <color name="menu_bg">#333B42</color>
+    <color name="de_login">#dedede</color>
 </resources>

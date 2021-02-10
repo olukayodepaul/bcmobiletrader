@@ -79,6 +79,7 @@ class CustomersActivity : AppCompatActivity() {
         when(separators) {
             "_id_outletOpen"-> {
                 val intent = Intent(applicationContext, ProductListActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                 startActivity(intent)
             }
             "_id_close_outlet"-> {

@@ -38,7 +38,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun loginStateFlow() {
-        lifecycleScope.launchWhenCreated {
+        lifecycleScope.launchWhenStarted {
             viewModel.loginUiState.collect {
                 it.let {
                     when (it) {

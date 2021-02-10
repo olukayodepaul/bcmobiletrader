@@ -58,8 +58,11 @@ android:background="@color/rippleEffectColor">
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_regular"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textColor="@color/menu_bg"
+            android:singleLine="false"
+            android:ellipsize="end"
+            android:maxLines="1"
             />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -69,15 +72,29 @@ android:background="@color/rippleEffectColor">
 
             <TextView
                 android:id="@+id/left_edcode"
+                android:layout_width="80dp"
+                android:layout_height="21dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="TextView"
+                android:textColor="@color/menu_bg"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/busines"
                 android:layout_width="wrap_content"
                 android:layout_height="21dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
                 android:text="TextView"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="0dp"
-                android:fontFamily="@font/roboto_regular"
-                android:textSize="15sp"
-                android:textColor="@color/menu_bg"
-                android:layout_marginTop="15dp"/>
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/left_edcode"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

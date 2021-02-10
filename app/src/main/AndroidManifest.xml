@@ -14,8 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.attendant.Attendant"></activity>
-        <activity android:name=".ui.customer.CustomersActivities" />
+        <activity
+            android:name=".ui.attendant.Attendant"
+            />
         <activity android:name=".ui.module.ModuleActivity" />
         <activity android:name=".ui.customers.CustomersActivity" />
         <activity android:name=".ui.productlist.ProductListActivity" />

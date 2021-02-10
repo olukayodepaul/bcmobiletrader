@@ -11,7 +11,6 @@ import com.amulyakhare.textdrawable.util.ColorGenerator
 import com.mobbile.paul.bcmobiletrader.R
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.customeradapter.view.*
-import kotlinx.android.synthetic.main.moduleadater_layout.view.*
 import kotlinx.android.synthetic.main.moduleadater_layout.view._id_check
 import kotlinx.android.synthetic.main.moduleadater_layout.view._tv_name_sales_entry
 import kotlinx.android.synthetic.main.moduleadater_layout.view.icons_images
@@ -55,6 +54,7 @@ class CustomersAdapter(
             containerView._id_check.setImageDrawable(drawable)
             containerView._tv_name_sales_entry.text = item.custname
             containerView.left_edcode.text = item.custno
+            containerView.busines.text = item.subdivision
 
             containerView.icons_images.setOnClickListener {
                 showPopup(containerView, item, clickListener)
@@ -78,16 +78,16 @@ class CustomersAdapter(
                 R.id._id_outletOpen -> {
                     clickItems(item, "_id_outletOpen")
                 }
-                R.id._id_close_outlet->{
+                R.id._id_close_outlet-> {
                     clickItems(item, "_id_close_outlet")
                 }
-                R.id._gps_location->{
+                R.id._gps_location-> {
                     clickItems(item, "_gps_location")
                 }
                 R.id._outlet_info_update->{
                     clickItems(item, "_outlet_info_update")
                 }
-                R.id.sales_entry_details->{
+                R.id.sales_entry_details-> {
                     clickItems(item, "sales_entry_details")
                 }
             }
