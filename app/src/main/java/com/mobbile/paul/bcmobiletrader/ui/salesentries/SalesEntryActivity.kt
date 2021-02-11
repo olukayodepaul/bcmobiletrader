@@ -1,6 +1,7 @@
 package com.mobbile.paul.bcmobiletrader.ui.salesentries
 
 import android.os.Bundle
+import android.view.Menu
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -25,6 +26,7 @@ class SalesEntryActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.salesentry)
+        setSupportActionBar(_sales_entry_toolbar)
         getGroupId = intent.getStringExtra("groupid")!!
         viewModel.fetchSalesEntryProduct(getGroupId!!)
         initAdapter()
@@ -33,6 +35,11 @@ class SalesEntryActivity: AppCompatActivity() {
         _sales_entry_toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.productmenu, menu)
+        return true
     }
 
     private fun initAdapter() {
