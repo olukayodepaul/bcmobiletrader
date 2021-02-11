@@ -116,5 +116,8 @@ dependencies {
     //image circles
     implementation Dependencies.colorGenerator
 
+    //Preferences
+    implementation Dependencies.sharePrefence
+
 
 }

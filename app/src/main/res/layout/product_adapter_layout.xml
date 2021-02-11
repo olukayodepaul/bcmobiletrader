@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="70dp"
     android:id="@+id/parent_modules"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginBottom="0.5dp"
-    android:background="@color/rippleEffectColor">
+    android:background="@color/rippleEffectColor"
+    android:orientation="vertical">
 
     <com.google.android.material.checkbox.MaterialCheckBox
         android:id="@+id/_id_check"
@@ -22,25 +21,54 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <RelativeLayout
-        android:layout_width="335dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="65dp"
+    <TextView
+        android:id="@+id/tv_name_product"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="10dp"
+        android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/_id_check"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:fontFamily="@font/roboto_medium"
+        android:textSize="16sp"
+        />
 
-        <TextView
-            android:id="@+id/tv_name_product"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/roboto_regular"
-            android:textSize="@dimen/sales_title" />
+    <TextView
+        android:id="@+id/group_code"
+        android:layout_width="50sp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="7dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/roboto_medium"
+        android:maxLines="1"
+        android:text="TextView"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name_product" />
 
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/itemid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="7dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/group_code"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name_product"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:fontFamily="@font/roboto_medium"
+        android:textSize="13sp"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

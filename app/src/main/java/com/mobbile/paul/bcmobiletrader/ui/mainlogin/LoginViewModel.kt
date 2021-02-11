@@ -28,14 +28,4 @@ class LoginViewModel @ViewModelInject constructor(private val repository: LoginR
             }
         }
     }
-
-    fun livePreference(userLogin: UserLoginRes) = viewModelScope.launch {
-        repository.sharedPrefsEditor().apply()
-        val editor = repository.sharedPrefsEditor()
-        editor.clear()
-        editor.putInt("employeeCode", userLogin.data!!.id!!)
-        editor.putString("transDate", userLogin.date)
-        editor.putString("customerNumber", userLogin.data!!.customerno)
-    }
-
 }

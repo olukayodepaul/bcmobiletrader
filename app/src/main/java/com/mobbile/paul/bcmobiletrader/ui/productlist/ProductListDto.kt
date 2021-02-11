@@ -12,22 +12,25 @@ data class ProductListDto (
     var auto: Int? = 0,
     @SerializedName("id")
     var id: Int? = 0,
+    @SerializedName("groupname")
+    var groupname: String? = null,
+    @SerializedName("item")
+    var item: String? = null,
     @SerializedName("name")
     var name: String? = null,
+    @SerializedName("unit")
+    var unit: String? = null,
+    @SerializedName("groupid")
+    var groupid: String? = null,
     @SerializedName("amount")
-    var amount: String? = null,
-    @SerializedName("code")
-    var code: String? = null,
+    var amount: Double? = null,
+    @SerializedName("checkitem")
+    var checkitem: Int? = 0,
     @SerializedName("qty")
     var qty: Int? = 0,
-    @SerializedName("products")
-    var products: String? = null,
-    @SerializedName("checked")
-    var checked: Int? = 0,
-    @SerializedName("sheffstock")
-    var sheffstock: Int? = 0,
-    @SerializedName("backroomstock")
-    var backroomstock: Int? = 0,
-    @SerializedName("qtypurchase")
-    var qtypurchase: Int? = 0
+    @SerializedName("shelf")
+    var shelf: Int? = 0,
+    @SerializedName("backroom")
+    var backroom: Int? = 0
 )
+

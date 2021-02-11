@@ -11,18 +11,16 @@ class ProductListRepositoryImpl(
     private val appdoa: AppDao
 ) : ProductListRepository {
     override suspend fun getProductListByCompany(
-        subdivisionid: Int,
-        companyid: Int
     ): ProductResDto {
-        return retrofitService.getProductListByCompany(subdivisionid, companyid)
+        return retrofitService.getProductListByCompany()
     }
 
     override suspend fun insertIntoProduct(modules: List<ProductListEntity>) {
         return appdoa.insertIntoProduct(modules)
     }
 
-    override suspend fun selectFromProduct(): List<ProductListEntity> {
-        return appdoa.selectFromProduct()
+    override suspend fun selectFromProduct(groupid:String): List<ProductListEntity> {
+        return appdoa.selectFromProduct(groupid)
     }
 
     override suspend fun checkProduct(checked: Int, code: String) {

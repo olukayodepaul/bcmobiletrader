@@ -55,4 +55,7 @@ object Dependencies {
     val kotlin_coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines_version}"
     val kotlin_coroutines_android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines_version}"
 
+    // Preferences DataStore
+    val sharePrefence = "androidx.datastore:datastore-preferences:${Versions.preference}"
+    // Preferences DataStore
 }

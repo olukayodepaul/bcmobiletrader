@@ -4,14 +4,6 @@
     app:menu="@menu/productmenu">
 
     <item
-        android:id="@+id/menu_search"
-        android:icon="@drawable/ic_baseline_search_24"
-        android:title="Search"
-        app:showAsAction="ifRoom|withText"
-        app:actionViewClass="androidx.appcompat.widget.SearchView"
-        />
-
-    <item
         android:id="@+id/menu_next"
         android:icon="@drawable/ic_baseline_navigate_next_24"
         android:title="Next"

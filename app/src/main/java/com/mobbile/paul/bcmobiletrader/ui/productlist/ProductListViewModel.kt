@@ -14,20 +14,20 @@ class ProductListViewModel @ViewModelInject constructor(private val repository: 
     private val _productsUiState = MutableStateFlow<ProductsUiState>(ProductsUiState.Empty)
     val prodctsUiStates get() = _productsUiState
 
-    fun fetchUserProducts(subdivisionid: Int, companyid: Int) = viewModelScope.launch {
+    fun fetchUserProducts(subdivision: String) = viewModelScope.launch {
         _productsUiState.value = ProductsUiState.Loading
         try {
 
-            val checkEmpty = repository.selectFromProduct()
+            val checkEmpty = repository.selectFromProduct(subdivision)
 
             if (checkEmpty.isEmpty()) {
-                val data = repository.getProductListByCompany(subdivisionid, companyid)
+                val data = repository.getProductListByCompany()
                 repository.insertIntoProduct(data.products.map { it.toProductListEntity() })
-                _productsUiState.value = ProductsUiState.Success(repository.selectFromProduct())
+                _productsUiState.value = ProductsUiState.Success(repository.selectFromProduct(subdivision))
                 return@launch
             }
 
-            _productsUiState.value = ProductsUiState.Success(repository.selectFromProduct())
+            _productsUiState.value = ProductsUiState.Success(repository.selectFromProduct(subdivision))
 
         } catch (e: Exception) {
             _productsUiState.value = ProductsUiState.Error(e.message.toString())

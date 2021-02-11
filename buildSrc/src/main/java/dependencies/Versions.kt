@@ -47,4 +47,5 @@ object Versions {
     val glide_version = "4.9.0"
     val hilt_lifecycle_viewmodel = "1.0.0-alpha01"
     val colorGeneratorVetsion = "1.0.1"
+    val preference = "1.0.0-alpha04"
 }

@@ -4,7 +4,7 @@ class PreferenceKeys {
 
     companion object{
         // Shared Preference Files:
-        const val APP_PREFERENCES: String = "com.mt.openapi.APP_PREFERENCES"
+        const val APP_PREFERENCES: String = "com.mt.apis.APP_PREFERENCES"
 
         // Shared Preference Keys
         const val PREVIOUS_AUTH_USER: String = "com.mt.openapi.PREVIOUS_AUTH_USER"

@@ -7,27 +7,44 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.preferencesKey
+import androidx.datastore.preferences.createDataStore
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mobbile.paul.bcmobiletrader.R
 import com.mobbile.paul.bcmobiletrader.ui.productlist.ProductListActivity
 import com.mobbile.paul.bcmobiletrader.util.CacheError
+import com.mobbile.paul.bcmobiletrader.util.PreferenceKeys
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.customersactivity.*
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
 class CustomersActivity : AppCompatActivity() {
 
     private val viewModel: CustomersViewModel by viewModels()
+
     private lateinit var nAdapter: CustomersAdapter
+
+    private lateinit var dataStore: DataStore<Preferences>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.customersactivity)
-        viewModel.fetchUserCustomers()
+        dataStore = createDataStore(name = "settings")
+
+        lifecycleScope.launchWhenCreated {
+            val getPreferenceData = getPreferenceData()!!.split("~|~")
+            viewModel.fetchUserCustomers(getPreferenceData[1])
+        }
+
         initAdapter()
         customerStateFlow()
 
@@ -35,6 +52,12 @@ class CustomersActivity : AppCompatActivity() {
            onBackPressed()
         }
 
+    }
+
+    private suspend fun getPreferenceData(): String? {
+        val dataStoreKey = preferencesKey<String>(PreferenceKeys.APP_PREFERENCES)
+        val preferences = dataStore.data.first()
+        return preferences[dataStoreKey]
     }
 
     private fun initAdapter() {
@@ -78,7 +101,9 @@ class CustomersActivity : AppCompatActivity() {
     private  fun handleAdapterEvent(partItem: CustomersListDto, separators: String) {
         when(separators) {
             "_id_outletOpen"-> {
-                val intent = Intent(applicationContext, ProductListActivity::class.java)
+                val intent = Intent(applicationContext, ProductListActivity::class.java).apply {
+                    putExtra("passingCustomerData", partItem)
+                }
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                 startActivity(intent)
             }

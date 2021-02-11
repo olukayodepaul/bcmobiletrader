@@ -12,11 +12,10 @@ class CustomersViewModel @ViewModelInject constructor(private val repository: Cu
     private val _customerUiState = MutableStateFlow<CustomerUiState>(CustomerUiState.Empty)
     val customerUiStates get() = _customerUiState
 
-    fun fetchUserCustomers()  = viewModelScope.launch {
+    fun fetchUserCustomers(customerNo: String)  = viewModelScope.launch {
         _customerUiState.value = CustomerUiState.Loading
         try {
-            println("SALESCODE 2 ${repository.sharedPreferences().getString("customerNumber","")!!}")
-            val data = repository.getCustomers("CPE005551")
+            val data = repository.getCustomers(customerNo)
             _customerUiState.value = CustomerUiState.Success(data)
         } catch (e: Exception) {
             _customerUiState.value = CustomerUiState.Error(e.message.toString())

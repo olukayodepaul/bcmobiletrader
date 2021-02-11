@@ -11,12 +11,12 @@ interface AppDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertIntoProduct(modules: List<ProductListEntity>)
 
-    @Query("SELECT * FROM products")
-    suspend fun selectFromProduct(): List<ProductListEntity>
+    @Query("SELECT * FROM products WHERE groupid=:groupid")
+    suspend fun selectFromProduct(groupid:String): List<ProductListEntity>
 
-    @Query("UPDATE products SET checked=:checked WHERE code = :code ")
+    @Query("UPDATE products SET checkitem=:checked WHERE item = :code ")
     suspend fun checkProduct(checked: Int, code: String)
 
-    @Query("SELECT * FROM products WHERE checked = 1")
+    @Query("SELECT * FROM products WHERE checkitem = 2")
     suspend fun selectCheckProduct(): List<ProductListEntity>
 }

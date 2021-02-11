@@ -1,5 +1,6 @@
 package com.mobbile.paul.bcmobiletrader.ui.productlist
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -37,18 +38,21 @@ class ProductAdapter(
     inner class ViewHolder(override val containerView: View) :
         RecyclerView.ViewHolder(containerView),
         LayoutContainer {
+        @SuppressLint("SetTextI18n")
         fun bind(
             item: ProductListEntity,
             clickListener: KFunction2<String, Int, Unit>
         ) {
-            containerView.tv_name_product.text = item.name
-            containerView._id_check.isChecked = item.checked != 0
+            containerView.tv_name_product.text = item.name!!.capitalize()
+            containerView._id_check.isChecked = item.checkitem != 1
+            containerView.itemid.text = item.groupname!!.capitalize()
+            containerView.group_code.text =  item.item
 
             containerView._id_check.setOnCheckedChangeListener { buttonView, isChecked ->
                 if (isChecked) {
-                    clickListener(item.code!!, 1)
+                    clickListener(item.item!!, 2)
                 }else{
-                    clickListener(item.code!!, 0)
+                    clickListener(item.item!!, 1)
                 }
             }
         }

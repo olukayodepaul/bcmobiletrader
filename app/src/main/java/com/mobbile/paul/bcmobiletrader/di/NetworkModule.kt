@@ -30,6 +30,7 @@ object NetworkModule {
         return sharedPreferences.edit()
     }
 
+
     @Singleton
     @Provides
     fun provideRecipeService(): RetrofitService {

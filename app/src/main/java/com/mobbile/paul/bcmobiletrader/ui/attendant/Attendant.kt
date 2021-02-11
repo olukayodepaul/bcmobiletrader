@@ -13,6 +13,5 @@ class Attendant : AppCompatActivity() {
         _attendant_toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
-
     }
 }
