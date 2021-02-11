@@ -8,7 +8,7 @@ class SalesEntryRepositoryImpl(
     private val retrofitService: RetrofitService,
     private val appdoa: AppDao
 ): SalesEntryRepository{
-    override suspend fun getSelectProduct(): List<ProductListEntity> {
-        return appdoa.selectCheckProduct()
+    override suspend fun getSelectProduct(subdivision: String): List<ProductListEntity> {
+        return appdoa.selectCheckProduct(subdivision)
     }
 }

@@ -56,6 +56,7 @@ class ProductListActivity : AppCompatActivity() {
         when (itemView) {
             R.id.menu_next -> {
                 val intent = Intent(applicationContext, SalesEntryActivity::class.java)
+                intent.putExtra("groupid", getParceableData.subdivision!!)
                 startActivity(intent)
             }
         }

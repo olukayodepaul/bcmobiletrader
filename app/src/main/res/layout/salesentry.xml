@@ -4,10 +4,8 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-android:background="@color/bp"
 android:orientation="vertical"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+xmlns:app="http://schemas.android.com/apk/res-auto">
 
 <androidx.appcompat.widget.Toolbar
     android:id="@+id/_sales_entry_toolbar"
@@ -19,10 +17,82 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
     app:navigationIcon="@drawable/ic_baseline_arrow_back_ios_24"
     />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/headers"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/_sales_entry_toolbar"
+        android:background="@color/blue_nblac">
+
+        <TextView
+            android:id="@+id/en_text_content"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="SKU"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/backroom"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.21"
+            android:fontFamily="@font/roboto_medium"/>
+
+        <TextView
+            android:id="@+id/backroom"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:orientation="vertical"
+            android:text="Backroom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/shelf"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.2"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/white"/>
+
+
+        <TextView
+            android:id="@+id/shelf"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/order"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.222"
+            android:orientation="vertical"
+            android:text="Shelf"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/white"/>
+
+
+        <TextView
+            android:id="@+id/order"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.21"
+            android:text="Order"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/white"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_below="@+id/_sales_entry_toolbar">
+    android:layout_below="@+id/headers"
+    >
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/_sales_entry_recycler_view"

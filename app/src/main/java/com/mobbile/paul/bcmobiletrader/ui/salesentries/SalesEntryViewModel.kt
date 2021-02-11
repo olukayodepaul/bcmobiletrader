@@ -13,10 +13,10 @@ class SalesEntryViewModel @ViewModelInject constructor(private val repository: S
     private val _salesEntryUiState = MutableStateFlow<SalesEntryUiState>(SalesEntryUiState.Empty)
     val salesEntryUiStates get() = _salesEntryUiState
 
-    fun fetchSalesEntryProduct() = viewModelScope.launch {
+    fun fetchSalesEntryProduct(groupid:String) = viewModelScope.launch {
         _salesEntryUiState.value = SalesEntryUiState.Loading
         try {
-            _salesEntryUiState.value = SalesEntryUiState.Success(repository.getSelectProduct())
+            _salesEntryUiState.value = SalesEntryUiState.Success(repository.getSelectProduct(groupid))
         }catch (e: Exception) {
             _salesEntryUiState.value = SalesEntryUiState.Error(e.message.toString())
         }

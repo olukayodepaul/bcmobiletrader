@@ -17,19 +17,22 @@ import kotlinx.coroutines.flow.collect
 class SalesEntryActivity: AppCompatActivity() {
 
     private val viewModel: SalesEntryViewModel by viewModels()
+
     private lateinit var nAdapter: SalesEntryAdapter
+
+    var getGroupId:String? = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.salesentry)
-        viewModel.fetchSalesEntryProduct()
+        getGroupId = intent.getStringExtra("groupid")!!
+        viewModel.fetchSalesEntryProduct(getGroupId!!)
         initAdapter()
         salesentryStateFlow()
 
         _sales_entry_toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
-
     }
 
     private fun initAdapter() {

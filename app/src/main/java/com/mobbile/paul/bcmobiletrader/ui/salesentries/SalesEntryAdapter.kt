@@ -37,7 +37,8 @@ class SalesEntryAdapter(
         RecyclerView.ViewHolder(containerView),
         LayoutContainer {
         fun bind(item: ProductListEntity) {
-            //containerView.en_text_content.text = item.name
+            containerView.en_text_content.text = item.name
         }
+        //clicking each component from here
     }
 }
