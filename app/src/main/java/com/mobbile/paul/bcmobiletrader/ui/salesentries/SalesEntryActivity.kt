@@ -1,7 +1,9 @@
 package com.mobbile.paul.bcmobiletrader.ui.salesentries
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.Menu
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -9,10 +11,14 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mobbile.paul.bcmobiletrader.R
+import com.mobbile.paul.bcmobiletrader.ui.productlist.ProductListEntity
 import com.mobbile.paul.bcmobiletrader.util.CacheError
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.sales_entry_adapter.view.*
 import kotlinx.android.synthetic.main.salesentry.*
 import kotlinx.coroutines.flow.collect
+import java.text.SimpleDateFormat
+import java.util.*
 
 @AndroidEntryPoint
 class SalesEntryActivity: AppCompatActivity() {
@@ -58,7 +64,7 @@ class SalesEntryActivity: AppCompatActivity() {
                         }
                         is SalesEntryUiState.Success -> {
                             _sales_entry_progress_bar.isVisible = false
-                            nAdapter = SalesEntryAdapter(it.data, applicationContext)
+                            nAdapter = SalesEntryAdapter(it.data, applicationContext,::adapterItemClicked)
                             nAdapter.notifyDataSetChanged()
                             _sales_entry_recycler_view.setItemViewCacheSize(it.data.size)
                             _sales_entry_recycler_view.adapter = nAdapter
@@ -71,5 +77,31 @@ class SalesEntryActivity: AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun adapterItemClicked(mItems: ProductListEntity, view: View?){
+
+        var trasformBackRoom = 0
+        var trasformShelfStock = 0
+        var trasformOrder = 0
+
+        if(view!!._backroom.text.toString().isNotEmpty()){
+            trasformBackRoom = view._backroom.text.toString().toInt()
+        }
+
+        if(view._shelf.text.toString().isNotEmpty()){
+            trasformShelfStock = view._shelf.text.toString().toInt()
+        }
+
+        if(view._order.text.toString().isNotEmpty()){
+            trasformOrder = view._order.text.toString().toInt()
+        }
+
+        println("EPOKAHI ${trasformBackRoom}~${trasformShelfStock}~${trasformOrder} ${mItems.auto} ${getTime()}")
+    }
+
+    @SuppressLint("SimpleDateFormat")
+    fun getTime(): String {
+        return SimpleDateFormat("HH:mm:ss").format(Date())
     }
 }

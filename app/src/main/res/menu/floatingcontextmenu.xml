@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-<item android:title="Outlet Location (onGoogle Map)"
+<item android:title="Customer Location (onGoogle Map)"
     android:id="@+id/_gps_location" />
 
-<item android:title="Outlet Close"
+<item android:title="Rejection On delivery"
     android:id="@+id/_id_close_outlet" />
 
-<item android:title="Outlet Open"
+<item android:title="Order"
     android:id="@+id/_id_outletOpen" />
 
-<item android:title="Outlet Update"
+<item android:title="Customer Outlet Update"
     android:id="@+id/_outlet_info_update" />
 
-<item android:title="Sales Details"
+<item android:title="Order History"
     android:id="@+id/sales_entry_details" />
 
 </menu>
