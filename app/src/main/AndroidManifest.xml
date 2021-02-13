@@ -14,19 +14,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity
-            android:name=".ui.attendant.Attendant"
-            />
-        <activity android:name=".ui.module.ModuleActivity" />
-        <activity android:name=".ui.customers.CustomersActivity" />
-        <activity android:name=".ui.productlist.ProductListActivity" />
-        <activity android:name=".ui.salesentries.SalesEntryActivity" />
-        <activity android:name=".ui.mainlogin.LoginActivity">
+        <activity android:name=".ui.mainlogin.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".ui.attendant.Attendant" />
+        <activity android:name=".ui.module.ModuleActivity" />
+        <activity android:name=".ui.customers.CustomersActivity" />
+        <activity android:name=".ui.productlist.ProductListActivity" />
+        <activity android:name=".ui.salesentries.SalesEntryActivity" />
+        <activity android:name=".ui.mainlogin.LoginActivity">
+
         </activity>
     </application>
 

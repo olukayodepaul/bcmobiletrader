@@ -9,10 +9,11 @@
                     android:color="@color/bp"/>
             <corners android:radius="3dip" />
             <padding
-                    android:bottom="4dip"
-                    android:left="4dip"
-                    android:right="4dip"
-                    android:top="4dip" />
+                    android:bottom="7dip"
+                    android:left="5dip"
+                    android:right="5dip"
+                    android:top="7dip" />
+
         </shape>
     </item>
 </selector>
