@@ -2,9 +2,12 @@ package com.mobbile.paul.bcmobiletrader.ui.mainlogin
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.LocationManager
 import android.os.Bundle
+import android.provider.Settings
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -30,6 +33,12 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private val viewModel: LoginViewModel by viewModels()
 
     private lateinit var dataStore: DataStore<Preferences>
+
+    lateinit var mLocationManager: LocationManager
+
+    val RC_ENABLE_LOCATION = 1
+
+    private var hasGps = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -109,6 +118,11 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         Manifest.permission.ACCESS_BACKGROUND_LOCATION
     ) == PackageManager.PERMISSION_GRANTED
 
+    private fun hasAccessFineLocationPermission() = ActivityCompat.checkSelfPermission(
+        this,
+        Manifest.permission.ACCESS_FINE_LOCATION
+    ) == PackageManager.PERMISSION_GRANTED
+
 
     private fun requestPermision() {
 
@@ -126,13 +140,25 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             permisonToRequest.add(Manifest.permission.ACCESS_BACKGROUND_LOCATION)
         }
 
+        if (!hasAccessFineLocationPermission()) {
+            permisonToRequest.add(Manifest.permission.ACCESS_FINE_LOCATION)
+        }
+
         if (permisonToRequest.isNotEmpty()) {
             ActivityCompat.requestPermissions(this, permisonToRequest.toTypedArray(), 0)
         } else {
-            val UserName: String? = etUsername.text.toString()
-            val password: String? = etPassword.text.toString()
-            val imei: String? = "imie"
-            viewModel.login(UserName!!, password!!, imei!!)
+            //check if GPS is on
+            mLocationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+            hasGps = mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+
+            if(!hasGps) {
+                callGpsIntent()
+            }else{
+                val UserName: String = etUsername.text.toString()
+                val password: String = etPassword.text.toString()
+                val imei: String = "imie"
+                viewModel.login(UserName, password, imei)
+            }
         }
     }
 
@@ -150,6 +176,11 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
         }
+    }
+
+    private fun callGpsIntent() {
+        val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+        startActivityForResult(intent, RC_ENABLE_LOCATION)
     }
 
 }
