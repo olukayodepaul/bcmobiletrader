@@ -39,6 +39,7 @@ class ProductAdapter(
         RecyclerView.ViewHolder(containerView),
         LayoutContainer {
         @SuppressLint("SetTextI18n")
+
         fun bind(
             item: ProductListEntity,
             clickListener: KFunction2<String, Int, Unit>
@@ -56,5 +57,7 @@ class ProductAdapter(
                 }
             }
         }
+
+
     }
 }

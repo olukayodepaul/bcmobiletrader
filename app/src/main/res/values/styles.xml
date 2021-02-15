@@ -7,4 +7,11 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowContentTransitions">true</item>
     </style>
+
+    <style name="WhiteAccent">
+        <item name="colorAccent">@color/bp</item>
+    </style>
+
+    <style name="inputText" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"/>
+
 </resources>

@@ -22,7 +22,7 @@ class CustomersAdapter(
     private val context: Context,
     private val clickListener: KFunction2<CustomersListDto, String, Unit>
 )
- :
+    :
     RecyclerView.Adapter<CustomersAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {

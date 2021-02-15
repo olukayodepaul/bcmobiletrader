@@ -22,7 +22,6 @@ class SplashScreen : AppCompatActivity() {
         animation = AnimationUtils.loadAnimation(this, R.anim.top_animation)
         logo_aplash.startAnimation(animation)
 
-        //Pairing animation in Kotlin
         Handler().postDelayed({
             val intent = Intent(this, LoginActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP.or(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -33,6 +32,5 @@ class SplashScreen : AppCompatActivity() {
             startActivity(intent, options.toBundle())
             finish()
         }, 2000)
-
     }
 }

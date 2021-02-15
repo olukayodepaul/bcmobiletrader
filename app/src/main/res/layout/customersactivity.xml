@@ -32,22 +32,25 @@
             />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
+            android:id="@+id/addCustomers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="35dp"
             android:layout_marginBottom="40dp"
-            android:backgroundTint="@color/bp"
+            android:backgroundTint="@color/white"
+            app:backgroundTint="@color/white"
             android:clickable="true"
-            app:backgroundTint="@color/bp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/add_icons" />
+            app:srcCompat="@drawable/add_icons"
+            android:layout_marginEnd="35dp"
+            app:maxImageSize="30dp"
+            app:tint="@color/bp"
+            />
 
         <ProgressBar
             android:id="@+id/progressCust"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:indeterminate="true"
             android:indeterminateTint="@color/bp"
             app:layout_constraintBottom_toBottomOf="parent"

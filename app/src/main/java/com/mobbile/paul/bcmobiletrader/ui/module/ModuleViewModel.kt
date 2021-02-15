@@ -9,7 +9,6 @@ import kotlinx.coroutines.launch
 
 class ModuleViewModel @ViewModelInject constructor(private val repository: ModuleRepository): ViewModel() {
 
-
     private val _moduleUiState = MutableStateFlow<ModuleUiState>(ModuleUiState.Empty)
     val moduleUiState get() = _moduleUiState
 

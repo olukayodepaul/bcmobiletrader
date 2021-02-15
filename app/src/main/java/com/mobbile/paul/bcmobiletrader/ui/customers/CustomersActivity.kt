@@ -9,13 +9,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
-import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.preferencesKey
 import androidx.datastore.preferences.createDataStore
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mobbile.paul.bcmobiletrader.R
+import com.mobbile.paul.bcmobiletrader.ui.newcustomers.Newcustomers
 import com.mobbile.paul.bcmobiletrader.ui.productlist.ProductListActivity
 import com.mobbile.paul.bcmobiletrader.util.CacheError
 import com.mobbile.paul.bcmobiletrader.util.PreferenceKeys
@@ -23,7 +23,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.customersactivity.*
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
@@ -49,9 +48,14 @@ class CustomersActivity : AppCompatActivity() {
         customerStateFlow()
 
         _customers_toolbar.setNavigationOnClickListener {
-           onBackPressed()
+            onBackPressed()
         }
 
+        addCustomers.setOnClickListener {
+            val intent = Intent(this, Newcustomers::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+        }
     }
 
     private suspend fun getPreferenceData(): String? {
@@ -65,6 +69,8 @@ class CustomersActivity : AppCompatActivity() {
         tv_customers.layoutManager = layoutManager
         tv_customers.setHasFixedSize(true)
     }
+
+
 
     private fun customerStateFlow() {
         lifecycleScope.launchWhenCreated {
@@ -135,4 +141,3 @@ class CustomersActivity : AppCompatActivity() {
             false
     }
 }
-
