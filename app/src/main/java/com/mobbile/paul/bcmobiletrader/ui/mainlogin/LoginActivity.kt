@@ -22,6 +22,7 @@ import androidx.lifecycle.lifecycleScope
 import com.mobbile.paul.bcmobiletrader.R
 import com.mobbile.paul.bcmobiletrader.ui.module.ModuleActivity
 import com.mobbile.paul.bcmobiletrader.util.CacheError
+import com.mobbile.paul.bcmobiletrader.util.PermisionUltility
 import com.mobbile.paul.bcmobiletrader.util.PreferenceKeys
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.loginactivity.*
@@ -59,7 +60,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v!!.id) {
             R.id.btnLogin -> {
-                requestPermision()
+                callRequestPermission()
             }
         }
     }
@@ -102,52 +103,15 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    //check if permission is granted
-    private fun hasWriteExternalPermission() = ActivityCompat.checkSelfPermission(
-        this,
-        Manifest.permission.WRITE_EXTERNAL_STORAGE
-    ) == PackageManager.PERMISSION_GRANTED
 
-    private fun hasLocationForegrandPermission() = ActivityCompat.checkSelfPermission(
-        this,
-        Manifest.permission.ACCESS_COARSE_LOCATION
-    ) == PackageManager.PERMISSION_GRANTED
+    private fun callRequestPermission() {
 
-    private fun hasBackgroudPermission() = ActivityCompat.checkSelfPermission(
-        this,
-        Manifest.permission.ACCESS_BACKGROUND_LOCATION
-    ) == PackageManager.PERMISSION_GRANTED
-
-    private fun hasAccessFineLocationPermission() = ActivityCompat.checkSelfPermission(
-        this,
-        Manifest.permission.ACCESS_FINE_LOCATION
-    ) == PackageManager.PERMISSION_GRANTED
-
-
-    private fun requestPermision() {
-
-        val permisonToRequest = mutableListOf<String>()
-
-        if (!hasWriteExternalPermission()) {
-            permisonToRequest.add(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-        }
-
-        if (!hasLocationForegrandPermission()) {
-            permisonToRequest.add(Manifest.permission.ACCESS_COARSE_LOCATION)
-        }
-
-        if (!hasBackgroudPermission()) {
-            permisonToRequest.add(Manifest.permission.ACCESS_BACKGROUND_LOCATION)
-        }
-
-        if (!hasAccessFineLocationPermission()) {
-            permisonToRequest.add(Manifest.permission.ACCESS_FINE_LOCATION)
-        }
+        val permisonToRequest = PermisionUltility.requestPermision(this)
 
         if (permisonToRequest.isNotEmpty()) {
             ActivityCompat.requestPermissions(this, permisonToRequest.toTypedArray(), 0)
         } else {
-            //check if GPS is on
+
             mLocationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
             hasGps = mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
 
@@ -161,7 +125,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
     }
-
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
