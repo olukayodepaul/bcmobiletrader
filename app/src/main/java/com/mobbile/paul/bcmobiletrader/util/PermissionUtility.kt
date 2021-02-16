@@ -7,7 +7,7 @@ import android.os.Build
 import androidx.core.app.ActivityCompat
 
 
-object PermisionUltility {
+object PermissionUtility {
 
 
     private fun hasWriteExternalPermission(context: Context) = ActivityCompat.checkSelfPermission(

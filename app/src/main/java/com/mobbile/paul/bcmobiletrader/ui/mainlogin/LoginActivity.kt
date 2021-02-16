@@ -1,6 +1,5 @@
 package com.mobbile.paul.bcmobiletrader.ui.mainlogin
 
-import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
@@ -22,7 +21,7 @@ import androidx.lifecycle.lifecycleScope
 import com.mobbile.paul.bcmobiletrader.R
 import com.mobbile.paul.bcmobiletrader.ui.module.ModuleActivity
 import com.mobbile.paul.bcmobiletrader.util.CacheError
-import com.mobbile.paul.bcmobiletrader.util.PermisionUltility
+import com.mobbile.paul.bcmobiletrader.util.PermissionUtility
 import com.mobbile.paul.bcmobiletrader.util.PreferenceKeys
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.loginactivity.*
@@ -106,7 +105,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun callRequestPermission() {
 
-        val permisonToRequest = PermisionUltility.requestPermision(this)
+        val permisonToRequest = PermissionUtility.requestPermision(this)
 
         if (permisonToRequest.isNotEmpty()) {
             ActivityCompat.requestPermissions(this, permisonToRequest.toTypedArray(), 0)
