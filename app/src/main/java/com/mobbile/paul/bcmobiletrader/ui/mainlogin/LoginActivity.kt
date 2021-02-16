@@ -105,7 +105,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun callRequestPermission() {
 
-        val permisonToRequest = PermissionUtility.requestPermision(this)
+        val permisonToRequest = PermissionUtility.requestPermission(this)
 
         if (permisonToRequest.isNotEmpty()) {
             ActivityCompat.requestPermissions(this, permisonToRequest.toTypedArray(), 0)
@@ -144,5 +144,4 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
         startActivityForResult(intent, RC_ENABLE_LOCATION)
     }
-
 }

@@ -42,7 +42,7 @@ object PermissionUtility {
     ) == PackageManager.PERMISSION_GRANTED
 
 
-    fun requestPermision(context: Context): MutableList<String> {
+    fun requestPermission(context: Context): MutableList<String> {
 
         val permisonToRequest = mutableListOf<String>()
 
@@ -55,7 +55,7 @@ object PermissionUtility {
         }
 
         //for android Q only
-        if(Build.VERSION.SDK_INT==Build.VERSION_CODES.Q) {
+        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.Q) {
             if (!hasBackgroudPermission(context)) {
                 permisonToRequest.add(Manifest.permission.ACCESS_BACKGROUND_LOCATION)
             }
