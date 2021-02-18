@@ -27,7 +27,11 @@ class SalesEntryRepositoryImpl(
         return appdoa.insertIntoItem(local)
     }
 
-    override suspend fun selectSingleItems(itemno: String,company: String, custpricegroup: String): ItemsListCache {
-        return appdoa.selectSingleItems(itemno, company, custpricegroup)
+    override suspend fun selectSingleItems(itemno: String,company: String, custpricegroup: String, unit: String): ItemsListCache {
+        return appdoa.selectSingleItems(itemno, company, custpricegroup, unit)
+    }
+
+    override suspend fun setPriceAndUnit(amount: Double, uofmeasure: String, id: Int) {
+        return appdoa.setPriceAndUnit(amount, uofmeasure, id)
     }
 }

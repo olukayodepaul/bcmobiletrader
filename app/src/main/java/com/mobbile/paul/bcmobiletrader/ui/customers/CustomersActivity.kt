@@ -114,7 +114,6 @@ class CustomersActivity : AppCompatActivity() {
                 startActivity(intent)
             }
             "_id_close_outlet"-> {
-                //make a network call
 
             }
             "_gps_location"-> {

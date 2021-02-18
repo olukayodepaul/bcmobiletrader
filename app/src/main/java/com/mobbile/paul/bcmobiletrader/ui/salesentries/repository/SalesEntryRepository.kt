@@ -10,5 +10,6 @@ interface SalesEntryRepository{
     suspend fun getItems(repedcode: String): ItemsEntryRes
     suspend fun selectAllItemsFromLocalDb(): List<ItemsListCache>
     suspend fun inserttAllItemsIntoLocalDb(local: List<ItemsListCache>)
-    suspend fun selectSingleItems(itemno: String, company: String, custpricegroup: String): ItemsListCache
+    suspend fun selectSingleItems(itemno: String, company: String, custpricegroup: String, unit: String): ItemsListCache
+    suspend fun setPriceAndUnit(amount: Double, uofmeasure: String, id:Int)
 }

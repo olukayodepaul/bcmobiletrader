@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -21,19 +22,25 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 @AndroidEntryPoint
-class SalesEntryActivity: AppCompatActivity() {
+class SalesEntryActivity : AppCompatActivity() {
 
     private val viewModel: SalesEntryViewModel by viewModels()
 
     private lateinit var nAdapter: SalesEntryAdapter
 
-    var getGroupId:String? = ""
+    var getGroupId: String? = ""
+    var getCompany: String? = ""
+    var getCustPriceGroup: String? = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.salesentry)
         setSupportActionBar(_sales_entry_toolbar)
+
         getGroupId = intent.getStringExtra("groupid")!!
+        getCompany = intent.getStringExtra("companies")!!
+        getCustPriceGroup = intent.getStringExtra("custpricegroup")!!
+
         viewModel.fetchSalesEntryProduct(getGroupId!!, "CPE005551")
         initAdapter()
         salesentryStateFlow()
@@ -64,7 +71,8 @@ class SalesEntryActivity: AppCompatActivity() {
                         }
                         is SalesEntryUiState.Success -> {
                             _sales_entry_progress_bar.isVisible = false
-                            nAdapter = SalesEntryAdapter(it.data, applicationContext,::adapterItemClicked)
+                            nAdapter =
+                                SalesEntryAdapter(it.data, applicationContext, ::adapterItemClicked)
                             nAdapter.notifyDataSetChanged()
                             _sales_entry_recycler_view.setItemViewCacheSize(it.data.size)
                             _sales_entry_recycler_view.adapter = nAdapter
@@ -79,22 +87,49 @@ class SalesEntryActivity: AppCompatActivity() {
         }
     }
 
-    private fun adapterItemClicked(mItems: ProductListEntity, view: View?) {
+    private fun adapterItemClicked(mItems: ProductListEntity, view: View?, specifier: String) {
 
-        var trasformBackRoom = 0
-        var trasformShelfStock = 0
+        //this allow you to test which one is clicked..........
+        var trasformShelf = 0
         var trasformOrder = 0
+        var trasformItem = ""
 
-        if(view!!._backroom.text.toString().isNotEmpty()){
-            trasformBackRoom = view._backroom.text.toString().toInt()
+
+        if (view!!._shelf.text.toString().isNotEmpty()) {
+            trasformShelf = view._shelf.text.toString().toInt()
         }
 
-        if(view._shelf.text.toString().isNotEmpty()){
-            trasformShelfStock = view._shelf.text.toString().toInt()
+        if (view._order.text.toString().isNotEmpty()) {
+            trasformOrder = view._order.text.toString().toInt()
         }
 
-        val getItemSelected = view._order.selectedItem.toString()
-
+        if (specifier.equals("_items")) {
+            lifecycleScope.launchWhenCreated {
+                val getItemSelected = view._items.selectedItem.toString()
+                viewModel.getPriceFromItems(mItems.item!!, getCompany!!, getCustPriceGroup!!, getItemSelected).collect {
+                    it.let {
+                        when (it) {
+                            is ItemEntryUiState.Loading -> {
+                            }
+                            is ItemEntryUiState.Success -> {
+                                if (getItemSelected != "SELECT") {
+                                    viewModel.setPriceAndUnit(it.data.price!!.toDouble(), getItemSelected, mItems.id!!)
+                                }
+                            }
+                            is ItemEntryUiState.Error -> {
+                                if (getItemSelected != "SELECT") {
+                                    view._items.setSelection(0)
+                                    CacheError(
+                                        applicationContext,
+                                        "No ${getItemSelected} Available for this sku"
+                                    ).toast
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
         /*println("EPOKAHI ${trasformBackRoom}~${trasformShelfStock}~${trasformOrder} ${mItems.auto} ${getTime()}")*/
     }
 

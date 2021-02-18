@@ -27,7 +27,9 @@ interface AppDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertIntoItem(item: List<ItemsListCache>)
 
-    @Query("SELECT price FROM item WHERE itemno = :itemno AND company = :company AND custpricegroup = :custpricegroup limit 1")
-    suspend fun selectSingleItems(itemno: String, company: String, custpricegroup: String): ItemsListCache
+    @Query("SELECT * FROM item WHERE itemno = :itemno AND company = :company AND custpricegroup = :custpricegroup and unit = :unit limit 1")
+    suspend fun selectSingleItems(itemno: String, company: String, custpricegroup: String, unit: String): ItemsListCache
 
+    @Query("UPDATE products set amount = :amount, uofmeasure = :uofmeasure WHERE id = :id")
+    suspend fun setPriceAndUnit(amount: Double, uofmeasure: String, id:Int )
 }

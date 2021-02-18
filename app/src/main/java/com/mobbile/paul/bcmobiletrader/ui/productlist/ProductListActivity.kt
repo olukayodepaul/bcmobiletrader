@@ -57,6 +57,8 @@ class ProductListActivity : AppCompatActivity() {
             R.id.menu_next -> {
                 val intent = Intent(applicationContext, SalesEntryActivity::class.java)
                 intent.putExtra("groupid", getParceableData.subdivision!!)
+                intent.putExtra("companies", getParceableData.busines!!)
+                intent.putExtra("custpricegroup", getParceableData.custpricegroup!!)
                 startActivity(intent)
             }
         }

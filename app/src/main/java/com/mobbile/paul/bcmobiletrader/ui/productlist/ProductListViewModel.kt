@@ -42,4 +42,5 @@ class ProductListViewModel @ViewModelInject constructor(private val repository: 
         }
     }
 
+
 }
