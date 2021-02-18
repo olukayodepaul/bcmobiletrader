@@ -17,23 +17,29 @@
         app:titleTextColor="@color/white"
         />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/tv_module"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/ballReleasegb"
-        android:layout_below="@+id/toolbar"
-        />
+        android:layout_below="@+id/toolbar">
 
-    <ProgressBar
-        android:id="@+id/progressBarID"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:indeterminateTint="@color/bp"
-        android:indeterminate="true"
-        android:layout_below="@+id/toolbar"
-        android:layout_margin="20dp"
-        android:visibility="invisible"
-        />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tv_module"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/ballReleasegb"
+            />
+
+        <ProgressBar
+            android:id="@+id/progressBarID"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/bp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </RelativeLayout>

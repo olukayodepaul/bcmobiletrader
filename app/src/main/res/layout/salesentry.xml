@@ -46,12 +46,13 @@
             android:layout_marginEnd="4dp"
             android:fontFamily="@font/roboto_medium"
             android:orientation="vertical"
-            android:text="Shelf Stock"
+            android:text="Shelf"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/shelf"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.2" />
+            app:layout_constraintVertical_bias="0.2"
+            android:textAlignment="textEnd"/>
 
         <TextView
             android:id="@+id/shelf"
@@ -65,7 +66,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/order"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.222" />
+            app:layout_constraintVertical_bias="0.222"
+            android:textAlignment="textEnd"/>
 
         <TextView
             android:id="@+id/order"
@@ -78,7 +80,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.21" />
+            app:layout_constraintVertical_bias="0.21"
+            android:textAlignment="textEnd"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

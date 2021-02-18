@@ -4,9 +4,9 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -20,20 +20,35 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.newcustomers.Newcustomers"></activity>
-        <activity android:name=".ui.mainlogin.SplashScreen" android:configChanges="orientation|screenSize|screenLayout">
+        <activity android:name=".ui.salesentryhistory.SalesEntryHistory" android:configChanges="orientation|screenSize|screenLayout"/>
+        <activity android:name=".ui.newcustomers.Newcustomers" />
+        <activity
+            android:name=".ui.mainlogin.SplashScreen"
+            android:configChanges="orientation|screenSize|screenLayout">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.attendant.Attendant" android:configChanges="orientation|screenSize|screenLayout"/>
-        <activity android:name=".ui.module.ModuleActivity" android:configChanges="orientation|screenSize|screenLayout"/>
-        <activity android:name=".ui.customers.CustomersActivity" android:configChanges="orientation|screenSize|screenLayout"/>
-        <activity android:name=".ui.productlist.ProductListActivity" android:configChanges="orientation|screenSize|screenLayout"/>
-        <activity android:name=".ui.salesentries.SalesEntryActivity" android:configChanges="orientation|screenSize|screenLayout"/>
-        <activity android:name=".ui.mainlogin.LoginActivity" android:configChanges="orientation|screenSize|screenLayout"></activity>
+        <activity
+            android:name=".ui.attendant.Attendant"
+            android:configChanges="orientation|screenSize|screenLayout" />
+        <activity
+            android:name=".ui.module.ModuleActivity"
+            android:configChanges="orientation|screenSize|screenLayout" />
+        <activity
+            android:name=".ui.customers.CustomersActivity"
+            android:configChanges="orientation|screenSize|screenLayout" />
+        <activity
+            android:name=".ui.productlist.ProductListActivity"
+            android:configChanges="orientation|screenSize|screenLayout" />
+        <activity
+            android:name=".ui.salesentries.SalesEntryActivity"
+            android:configChanges="orientation|screenSize|screenLayout" />
+        <activity
+            android:name=".ui.mainlogin.LoginActivity"
+            android:configChanges="orientation|screenSize|screenLayout" />
     </application>
 
 </manifest>

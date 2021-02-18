@@ -1,10 +1,11 @@
 package com.mobbile.paul.bcmobiletrader.ui.salesentries
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mobbile.paul.bcmobiletrader.R
 import com.mobbile.paul.bcmobiletrader.ui.productlist.ProductListEntity
+import com.mobbile.paul.bcmobiletrader.ui.salesentryhistory.SalesEntryHistory
 import com.mobbile.paul.bcmobiletrader.util.CacheError
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.sales_entry_adapter.view.*
@@ -50,11 +52,6 @@ class SalesEntryActivity : AppCompatActivity() {
         _sales_entry_toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.productmenu, menu)
-        return true
     }
 
     private fun initAdapter() {
@@ -135,6 +132,22 @@ class SalesEntryActivity : AppCompatActivity() {
     @SuppressLint("SimpleDateFormat")
     fun getTime(): String {
         return SimpleDateFormat("HH:mm:ss").format(Date())
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.productmenu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val itemView = item.itemId
+        when (itemView) {
+            R.id.menu_next -> {
+                val intent = Intent(applicationContext, SalesEntryHistory::class.java)
+                startActivity(intent)
+            }
+        }
+        return false
     }
 
 }
