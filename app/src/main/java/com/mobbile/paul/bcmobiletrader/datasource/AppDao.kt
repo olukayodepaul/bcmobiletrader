@@ -9,6 +9,7 @@ import com.mobbile.paul.bcmobiletrader.ui.salesentries.ItemsListCache
 
 @Dao
 interface AppDao {
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertIntoProduct(modules: List<ProductListEntity>)
 
@@ -32,4 +33,8 @@ interface AppDao {
 
     @Query("UPDATE products set amount = :amount, uofmeasure = :uofmeasure WHERE id = :id")
     suspend fun setPriceAndUnit(amount: Double, uofmeasure: String, id:Int )
+
+    @Query("UPDATE products set shelf=:shelf, qty =:qty WHERE id = :id")
+    suspend fun setShelfstockAndQty(shelf: Int, qty: Int, id:Int)
+
 }

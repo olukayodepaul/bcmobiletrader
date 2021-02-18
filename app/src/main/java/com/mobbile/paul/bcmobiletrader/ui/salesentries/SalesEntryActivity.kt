@@ -29,7 +29,9 @@ class SalesEntryActivity : AppCompatActivity() {
     private lateinit var nAdapter: SalesEntryAdapter
 
     var getGroupId: String? = ""
+
     var getCompany: String? = ""
+
     var getCustPriceGroup: String? = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -89,11 +91,8 @@ class SalesEntryActivity : AppCompatActivity() {
 
     private fun adapterItemClicked(mItems: ProductListEntity, view: View?, specifier: String) {
 
-        //this allow you to test which one is clicked..........
         var trasformShelf = 0
         var trasformOrder = 0
-        var trasformItem = ""
-
 
         if (view!!._shelf.text.toString().isNotEmpty()) {
             trasformShelf = view._shelf.text.toString().toInt()
@@ -103,26 +102,27 @@ class SalesEntryActivity : AppCompatActivity() {
             trasformOrder = view._order.text.toString().toInt()
         }
 
+        viewModel.setShelfstockAndQty(trasformShelf, trasformOrder, mItems.id!!)
+
         if (specifier.equals("_items")) {
             lifecycleScope.launchWhenCreated {
                 val getItemSelected = view._items.selectedItem.toString()
                 viewModel.getPriceFromItems(mItems.item!!, getCompany!!, getCustPriceGroup!!, getItemSelected).collect {
                     it.let {
                         when (it) {
-                            is ItemEntryUiState.Loading -> {
-                            }
+
+                            is ItemEntryUiState.Loading -> {}
+
                             is ItemEntryUiState.Success -> {
                                 if (getItemSelected != "SELECT") {
                                     viewModel.setPriceAndUnit(it.data.price!!.toDouble(), getItemSelected, mItems.id!!)
                                 }
                             }
+
                             is ItemEntryUiState.Error -> {
                                 if (getItemSelected != "SELECT") {
                                     view._items.setSelection(0)
-                                    CacheError(
-                                        applicationContext,
-                                        "No ${getItemSelected} Available for this sku"
-                                    ).toast
+                                    CacheError(applicationContext, "No ${getItemSelected} Available for this sku").toast
                                 }
                             }
                         }
@@ -130,7 +130,6 @@ class SalesEntryActivity : AppCompatActivity() {
                 }
             }
         }
-        /*println("EPOKAHI ${trasformBackRoom}~${trasformShelfStock}~${trasformOrder} ${mItems.auto} ${getTime()}")*/
     }
 
     @SuppressLint("SimpleDateFormat")

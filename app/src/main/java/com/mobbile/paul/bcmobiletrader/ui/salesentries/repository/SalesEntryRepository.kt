@@ -12,4 +12,5 @@ interface SalesEntryRepository{
     suspend fun inserttAllItemsIntoLocalDb(local: List<ItemsListCache>)
     suspend fun selectSingleItems(itemno: String, company: String, custpricegroup: String, unit: String): ItemsListCache
     suspend fun setPriceAndUnit(amount: Double, uofmeasure: String, id:Int)
+    suspend fun setShelfstockAndQty(shelf: Int, qty: Int, id:Int)
 }

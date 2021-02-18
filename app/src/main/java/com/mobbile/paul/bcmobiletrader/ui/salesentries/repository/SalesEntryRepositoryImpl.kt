@@ -34,4 +34,9 @@ class SalesEntryRepositoryImpl(
     override suspend fun setPriceAndUnit(amount: Double, uofmeasure: String, id: Int) {
         return appdoa.setPriceAndUnit(amount, uofmeasure, id)
     }
+
+    override suspend fun setShelfstockAndQty(shelf: Int, qty: Int, id: Int) {
+        appdoa.setShelfstockAndQty(shelf,qty,id)
+    }
+
 }

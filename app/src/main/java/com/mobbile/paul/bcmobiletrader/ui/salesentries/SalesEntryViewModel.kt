@@ -51,4 +51,8 @@ class SalesEntryViewModel @ViewModelInject constructor(private val repository: S
         repository.setPriceAndUnit(amount, uofmeasure, id)
     }
 
+    fun setShelfstockAndQty(shelf: Int, qty: Int, id:Int) = viewModelScope.launch {
+        repository.setShelfstockAndQty(shelf, qty, id)
+    }
+    
 }
