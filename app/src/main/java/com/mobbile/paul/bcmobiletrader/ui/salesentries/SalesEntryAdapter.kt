@@ -6,6 +6,7 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import androidx.recyclerview.widget.RecyclerView
 import com.mobbile.paul.bcmobiletrader.R
 import com.mobbile.paul.bcmobiletrader.ui.productlist.ProductListEntity
@@ -46,12 +47,25 @@ class SalesEntryAdapter(
         ) {
             containerView.en_text_content.text = item.name
 
+
             containerView._backroom.addTextChangedListener(
                 object : TextWatcher {
                     override fun afterTextChanged(s: Editable?) {}
-                    override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-                    override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                        clickListener(item,containerView)
+                    override fun beforeTextChanged(
+                        s: CharSequence?,
+                        start: Int,
+                        count: Int,
+                        after: Int
+                    ) {
+                    }
+
+                    override fun onTextChanged(
+                        s: CharSequence?,
+                        start: Int,
+                        before: Int,
+                        count: Int
+                    ) {
+                        clickListener(item, containerView)
                     }
                 }
             )
@@ -59,23 +73,39 @@ class SalesEntryAdapter(
             containerView._shelf.addTextChangedListener(
                 object : TextWatcher {
                     override fun afterTextChanged(s: Editable?) {}
-                    override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-                    override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                        clickListener(item,containerView)
+                    override fun beforeTextChanged(
+                        s: CharSequence?,
+                        start: Int,
+                        count: Int,
+                        after: Int
+                    ) {
+                    }
+
+                    override fun onTextChanged(
+                        s: CharSequence?,
+                        start: Int,
+                        before: Int,
+                        count: Int
+                    ) {
+                        clickListener(item, containerView)
                     }
                 }
             )
 
-            containerView._order.addTextChangedListener(
-                object : TextWatcher {
-                    override fun afterTextChanged(s: Editable?) {}
-                    override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-                    override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                        clickListener(item,containerView)
-                        //(this@EntriesAdapter.clickListener)(item,containerView)
-                    }
+            containerView._order.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    clickListener(item, containerView)
                 }
-            )
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                    TODO("Not yet implemented")
+                }
+            }
         }
     }
 }

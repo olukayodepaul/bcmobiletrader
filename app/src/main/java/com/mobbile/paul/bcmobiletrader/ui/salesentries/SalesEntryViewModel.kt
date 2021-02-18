@@ -7,19 +7,28 @@ import com.mobbile.paul.bcmobiletrader.ui.salesentries.repository.SalesEntryRepo
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 
-class SalesEntryViewModel @ViewModelInject constructor(private val repository: SalesEntryRepository):
+class SalesEntryViewModel @ViewModelInject constructor(private val repository: SalesEntryRepository) :
     ViewModel() {
 
     private val _salesEntryUiState = MutableStateFlow<SalesEntryUiState>(SalesEntryUiState.Empty)
     val salesEntryUiStates get() = _salesEntryUiState
 
-    fun fetchSalesEntryProduct(groupid:String) = viewModelScope.launch {
+    fun fetchSalesEntryProduct(groupid: String, edcode: String) = viewModelScope.launch {
+
+        val checkItems = repository.selectAllItemsFromLocalDb()
+
+        if (checkItems.isEmpty()) {
+            val data = repository.getItems(edcode)
+            repository.inserttAllItemsIntoLocalDb(data.item.map { it.toItemsEntity() })
+        }
+
         _salesEntryUiState.value = SalesEntryUiState.Loading
+
         try {
-            _salesEntryUiState.value = SalesEntryUiState.Success(repository.getSelectProduct(groupid))
-        }catch (e: Exception) {
+            _salesEntryUiState.value =
+                SalesEntryUiState.Success(repository.getSelectProduct(groupid))
+        } catch (e: Exception) {
             _salesEntryUiState.value = SalesEntryUiState.Error(e.message.toString())
         }
     }
-
 }

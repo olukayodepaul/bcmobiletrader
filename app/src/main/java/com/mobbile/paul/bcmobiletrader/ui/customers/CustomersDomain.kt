@@ -39,6 +39,10 @@ data class CustomersListDto (
     @SerializedName("subdivision")
     var subdivision: String? = null,
     @SerializedName("baemployee_id")
-    var baemployee_id: String? = null
+    var baemployee_id: String? = null,
+    @SerializedName("custpostgroup")
+    var custpostgroup: String? = null,
+    @SerializedName("custpricegroup")
+    var custpricegroup: String? = null
 ): Parcelable
 

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="spinnerItems">
+        <item>SELECT</item>
+        <item>BOTTLES</item>
+        <item>CTN</item>
+        <item>BOX</item>
+        <item>PCK</item>
+        <item>ROLLS</item>
+        <item>CASE</item>
+    </string-array>
+
+</resources>

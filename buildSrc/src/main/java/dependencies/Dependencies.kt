@@ -3,6 +3,7 @@ package dependencies
 import dependencies.Versions.hilt_lifecycle_viewmodel
 
 object Dependencies {
+
     val kotlin_standard_library = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
     val kotlin_reflect = "org.jetbrains.kotlin:kotlin-reflect:${Versions.kotlin}"
     val ktx = "androidx.core:core-ktx:${Versions.ktx}"

@@ -34,7 +34,7 @@ class SalesEntryActivity: AppCompatActivity() {
         setContentView(R.layout.salesentry)
         setSupportActionBar(_sales_entry_toolbar)
         getGroupId = intent.getStringExtra("groupid")!!
-        viewModel.fetchSalesEntryProduct(getGroupId!!)
+        viewModel.fetchSalesEntryProduct(getGroupId!!, "CPE005551")
         initAdapter()
         salesentryStateFlow()
 
@@ -79,7 +79,7 @@ class SalesEntryActivity: AppCompatActivity() {
         }
     }
 
-    private fun adapterItemClicked(mItems: ProductListEntity, view: View?){
+    private fun adapterItemClicked(mItems: ProductListEntity, view: View?) {
 
         var trasformBackRoom = 0
         var trasformShelfStock = 0
@@ -93,15 +93,14 @@ class SalesEntryActivity: AppCompatActivity() {
             trasformShelfStock = view._shelf.text.toString().toInt()
         }
 
-        if(view._order.text.toString().isNotEmpty()){
-            trasformOrder = view._order.text.toString().toInt()
-        }
+        val getItemSelected = view._order.selectedItem.toString()
 
-        println("EPOKAHI ${trasformBackRoom}~${trasformShelfStock}~${trasformOrder} ${mItems.auto} ${getTime()}")
+        /*println("EPOKAHI ${trasformBackRoom}~${trasformShelfStock}~${trasformOrder} ${mItems.auto} ${getTime()}")*/
     }
 
     @SuppressLint("SimpleDateFormat")
     fun getTime(): String {
         return SimpleDateFormat("HH:mm:ss").format(Date())
     }
+
 }

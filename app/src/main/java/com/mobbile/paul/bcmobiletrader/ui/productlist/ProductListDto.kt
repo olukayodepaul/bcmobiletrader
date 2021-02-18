@@ -30,7 +30,7 @@ data class ProductListDto (
     var qty: Int? = 0,
     @SerializedName("shelf")
     var shelf: Int? = 0,
-    @SerializedName("backroom")
-    var backroom: Int? = 0
+    @SerializedName("uofmeasure")
+    var uofmeasure: String? = null
 )
 

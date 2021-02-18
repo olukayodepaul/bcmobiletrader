@@ -11,7 +11,6 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
 
-
     <application
         android:name="com.mobbile.paul.BaseApplication"
         android:allowBackup="true"
@@ -22,19 +21,19 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".ui.newcustomers.Newcustomers"></activity>
-        <activity android:name=".ui.mainlogin.SplashScreen">
+        <activity android:name=".ui.mainlogin.SplashScreen" android:configChanges="orientation|screenSize|screenLayout">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.attendant.Attendant" />
-        <activity android:name=".ui.module.ModuleActivity" />
-        <activity android:name=".ui.customers.CustomersActivity" />
-        <activity android:name=".ui.productlist.ProductListActivity" />
-        <activity android:name=".ui.salesentries.SalesEntryActivity" />
-        <activity android:name=".ui.mainlogin.LoginActivity"></activity>
+        <activity android:name=".ui.attendant.Attendant" android:configChanges="orientation|screenSize|screenLayout"/>
+        <activity android:name=".ui.module.ModuleActivity" android:configChanges="orientation|screenSize|screenLayout"/>
+        <activity android:name=".ui.customers.CustomersActivity" android:configChanges="orientation|screenSize|screenLayout"/>
+        <activity android:name=".ui.productlist.ProductListActivity" android:configChanges="orientation|screenSize|screenLayout"/>
+        <activity android:name=".ui.salesentries.SalesEntryActivity" android:configChanges="orientation|screenSize|screenLayout"/>
+        <activity android:name=".ui.mainlogin.LoginActivity" android:configChanges="orientation|screenSize|screenLayout"></activity>
     </application>
 
 </manifest>

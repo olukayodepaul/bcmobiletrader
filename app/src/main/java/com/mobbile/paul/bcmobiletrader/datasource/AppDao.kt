@@ -5,13 +5,14 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.mobbile.paul.bcmobiletrader.ui.productlist.ProductListEntity
+import com.mobbile.paul.bcmobiletrader.ui.salesentries.ItemsListCache
 
 @Dao
 interface AppDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertIntoProduct(modules: List<ProductListEntity>)
 
-    @Query("SELECT * FROM products WHERE groupid=:groupid")
+    @Query("SELECT * FROM products WHERE groupid = :groupid")
     suspend fun selectFromProduct(groupid:String): List<ProductListEntity>
 
     @Query("UPDATE products SET checkitem=:checked WHERE item = :code ")
@@ -19,5 +20,14 @@ interface AppDao {
 
     @Query("SELECT * FROM products WHERE checkitem = 2 AND groupid=:subdivision")
     suspend fun selectCheckProduct(subdivision: String): List<ProductListEntity>
+
+    @Query("SELECT * FROM item")
+    suspend fun selectAllItems(): List<ItemsListCache>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertIntoItem(item: List<ItemsListCache>)
+
+    @Query("SELECT price FROM item WHERE itemno = :itemno AND company = :company AND custpricegroup = :custpricegroup limit 1")
+    suspend fun selectSingleItems(itemno: String, company: String, custpricegroup: String): ItemsListCache
 
 }

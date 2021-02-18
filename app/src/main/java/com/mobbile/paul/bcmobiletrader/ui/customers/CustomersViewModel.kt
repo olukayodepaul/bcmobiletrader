@@ -21,6 +21,10 @@ class CustomersViewModel @ViewModelInject constructor(private val repository: Cu
             _customerUiState.value = CustomerUiState.Error(e.message.toString())
         }
     }
+
+
+
+
 }
 
 

@@ -29,8 +29,8 @@ data class ProductListEntity (
     var qty: Int? = 0,
     @ColumnInfo(name = "shelf")
     var shelf: Int? = 0,
-    @ColumnInfo(name = "backroom")
-    var backroom: Int? = 0
+    @ColumnInfo(name = "uofmeasure")
+    var uofmeasure: String? = null
 )
 
 

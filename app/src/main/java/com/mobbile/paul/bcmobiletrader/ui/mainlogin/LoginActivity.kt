@@ -36,8 +36,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     lateinit var mLocationManager: LocationManager
 
-    val RC_ENABLE_LOCATION = 1
-
     private var hasGps = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -142,6 +140,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun callGpsIntent() {
         val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
-        startActivityForResult(intent, RC_ENABLE_LOCATION)
+        startActivityForResult(intent, 1)
     }
 }

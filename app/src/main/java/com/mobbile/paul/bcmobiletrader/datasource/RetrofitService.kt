@@ -5,6 +5,7 @@ import com.mobbile.paul.bcmobiletrader.ui.customers.CustomerResDto
 import com.mobbile.paul.bcmobiletrader.ui.mainlogin.UserLoginRes
 import com.mobbile.paul.bcmobiletrader.ui.module.ModulesResDto
 import com.mobbile.paul.bcmobiletrader.ui.productlist.ProductResDto
+import com.mobbile.paul.bcmobiletrader.ui.salesentries.ItemsEntryRes
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -29,5 +30,10 @@ interface RetrofitService{
 
     @GET("/ba/api/products")
     suspend fun getProductListByCompany(): ProductResDto
+
+    @GET("/ba/api/bacustitems")
+    suspend fun getItems(
+        @Query("repedcode") repedcode: String
+    ): ItemsEntryRes
 
 }
