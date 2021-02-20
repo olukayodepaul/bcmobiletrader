@@ -4,105 +4,110 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
-    android:orientation="vertical"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:scrollbars="vertical"
     tools:context=".ui.mainlogin.LoginActivity">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/logi_widget"
-        android:layout_width="match_parent"
-        android:layout_height="210dp"
-        android:layout_marginTop="50dp"
-        android:src="@drawable/ba_logi"
-        android:transitionName="logo_image" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/userNameWidget"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/logi_widget"
-        android:hint="Username"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:paddingBottom="10dp"
-        style="@style/inputText">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etUsername"
+        android:id="@+id/_scrollls_layout">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/roboto_medium"
-            android:textSize="13dp" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/logi_widget"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:layout_marginTop="50dp"
+                android:src="@drawable/ba_logi"
+                android:transitionName="logo_image" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/userNameWidget"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Username"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="10dp"
+                style="@style/inputText">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/opensanbold"
+                    android:textSize="18dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/passwordWidget"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/userNameWidget"
-        android:hint="Password"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        app:endIconMode="password_toggle"
-        style="@style/inputText">
-        <!--style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordWidget"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                app:endIconMode="password_toggle"
+                style="@style/inputText">
+                <!--style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
 
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etPassword"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/roboto_medium"
-            android:inputType="textPassword"
-            android:textSize="13dp" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/opensanbold"
+                    android:inputType="textPassword"
+                    android:textSize="18dp" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/passwordWidget"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginRight="20dp"
-        android:fontFamily="@font/roboto_medium"
-        android:text="Login"
-        android:textAlignment="center"
-        android:textColor="@color/rippleEffectColor"
-        android:textSize="14sp"
-        android:padding="12dp" />
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/passwordWidget"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/opensanbold"
+                android:text="Login"
+                android:textAlignment="center"
+                android:textColor="@color/rippleEffectColor"
+                android:textSize="16sp"
+                android:padding="12dp" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_below="@+id/btnLogin"
-        android:theme="@style/WhiteAccent"
-        android:visibility="invisible"
-        />
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:theme="@style/WhiteAccent"
+                android:visibility="invisible"/>
+
+        </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/progressBar"
-        >
-
+        android:layout_below="@+id/_scrollls_layout">
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:fontFamily="@font/roboto_medium"
+            android:fontFamily="@font/opensanbold"
             android:gravity="center"
             android:text="Copyright © 2021 BC, All rights reserved."
             android:textAlignment="center"
+            android:textSize="12sp"
             android:layout_gravity="bottom"/>
-
     </LinearLayout>
 </RelativeLayout>
-

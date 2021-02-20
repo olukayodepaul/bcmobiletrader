@@ -1,6 +1,5 @@
 package com.mobbile.paul.bcmobiletrader.ui.module
 
-import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -14,7 +13,6 @@ import com.mobbile.paul.bcmobiletrader.util.CacheError
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.moduleactivity.*
 import kotlinx.coroutines.flow.collect
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class ModuleActivity : AppCompatActivity() {
@@ -25,15 +23,9 @@ class ModuleActivity : AppCompatActivity() {
 
     private lateinit var nAdapter: ModuleAdapter
 
-    @Inject
-    lateinit var sharePrefence: SharedPreferences
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.moduleactivity)
-
-        println("MERGER ${sharePrefence.getString("customerNumber","")!!}")
-
         getAllUserInfoData = intent.extras!!.getParcelable("setAllUserInfoData")!!
         viewModel.fetchUserModule(getAllUserInfoData!!.id!!)
         modulesStateFlow()

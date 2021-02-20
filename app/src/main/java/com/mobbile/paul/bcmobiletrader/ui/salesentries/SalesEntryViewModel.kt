@@ -3,7 +3,6 @@ package com.mobbile.paul.bcmobiletrader.ui.salesentries
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mobbile.paul.bcmobiletrader.ui.module.ModuleUiState
 import com.mobbile.paul.bcmobiletrader.ui.salesentries.repository.SalesEntryRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
@@ -54,5 +53,4 @@ class SalesEntryViewModel @ViewModelInject constructor(private val repository: S
     fun setShelfstockAndQty(shelf: Int, qty: Int, id:Int) = viewModelScope.launch {
         repository.setShelfstockAndQty(shelf, qty, id)
     }
-    
 }

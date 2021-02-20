@@ -37,4 +37,7 @@ interface AppDao {
     @Query("UPDATE products set shelf=:shelf, qty =:qty WHERE id = :id")
     suspend fun setShelfstockAndQty(shelf: Int, qty: Int, id:Int)
 
+    @Query("SELECT * FROM products WHERE groupid= :groupid AND checkitem = 2 and uofmeasure <> '' ")
+    suspend fun getEntries(groupid: String): List<ProductListEntity>
+
 }

@@ -1,6 +1,5 @@
 package com.mobbile.paul.bcmobiletrader.di
 
-import android.content.SharedPreferences
 import com.mobbile.paul.bcmobiletrader.datasource.AppDao
 import com.mobbile.paul.bcmobiletrader.datasource.RetrofitService
 import com.mobbile.paul.bcmobiletrader.ui.customers.repository.CustomerRepository
@@ -13,6 +12,8 @@ import com.mobbile.paul.bcmobiletrader.ui.productlist.repository.ProductListRepo
 import com.mobbile.paul.bcmobiletrader.ui.productlist.repository.ProductListRepositoryImpl
 import com.mobbile.paul.bcmobiletrader.ui.salesentries.repository.SalesEntryRepository
 import com.mobbile.paul.bcmobiletrader.ui.salesentries.repository.SalesEntryRepositoryImpl
+import com.mobbile.paul.bcmobiletrader.ui.salesentryhistory.repository.SalesEntryHistoryRepository
+import com.mobbile.paul.bcmobiletrader.ui.salesentryhistory.repository.SalesEntryHistoryRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,11 +28,10 @@ object AppRepository {
     @Provides
     fun provideLoginRepository(
         retrofitService: RetrofitService,
-        appdoa: AppDao,
-        sharedPrefsEditor: SharedPreferences.Editor
+        appdoa: AppDao
     ): LoginRepository {
         return LoginRepositoryImpl(
-            retrofitService,appdoa, sharedPrefsEditor
+            retrofitService, appdoa
         )
     }
 
@@ -42,7 +42,7 @@ object AppRepository {
         appdoa: AppDao
     ): ModuleRepository {
         return ModuleRepositoryImpl(
-            retrofitService,  appdoa
+            retrofitService, appdoa
         )
     }
 
@@ -50,11 +50,10 @@ object AppRepository {
     @Provides
     fun provideCustomerRepository(
         retrofitService: RetrofitService,
-        appdoa: AppDao,
-        sharedPreferences: SharedPreferences
+        appdoa: AppDao
     ): CustomerRepository {
         return CustomerRepositoryImpl(
-            retrofitService, appdoa, sharedPreferences
+            retrofitService, appdoa
         )
     }
 
@@ -80,5 +79,15 @@ object AppRepository {
         )
     }
 
+    @Singleton
+    @Provides
+    fun provideSalesEntryHistoryRepository(
+        retrofitService: RetrofitService,
+        appdoa: AppDao
+    ): SalesEntryHistoryRepository {
+        return SalesEntryHistoryRepositoryImpl(
+            retrofitService, appdoa
+        )
+    }
 
 }
