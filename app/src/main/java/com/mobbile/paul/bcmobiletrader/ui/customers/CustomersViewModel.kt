@@ -34,15 +34,19 @@ class CustomersViewModel @ViewModelInject constructor(private val repository: Cu
                 val data = repository.getCustomers(customerNo)
                 _customerUiState.value = CustomerUiState.Success(data)
             } catch (e: Exception) {
-                _customerUiState.value = CustomerUiState.Error(e.message.toString())
+                if(e.message.toString()=="timeout"){
+                    _customerUiState.value = CustomerUiState.Error("Out of mobile data or bad network")
+                }else if(e.message!!.contains("Unable to resolve host", true)){
+                    _customerUiState.value = CustomerUiState.Error("Mobile data is off")
+                }else if(e.message!!.contains("Failed to connect to", true)){
+                    _customerUiState.value = CustomerUiState.Error("Mobile trader cloud is download")
+                }else{
+                    _customerUiState.value = CustomerUiState.Error(e.message.toString())
+                }
             }
         }
         return _customerUiState
     }
-
-
-
-
 }
 
 
