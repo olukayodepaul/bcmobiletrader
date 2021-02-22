@@ -20,7 +20,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.salesentryhistory.SalesEntryHistory" android:configChanges="orientation|screenSize|screenLayout"/>
+        <activity android:name=".ui.rejection.SkuRejectedActivity"></activity>
+        <activity android:name=".ui.outletupdate.UpdateOutletActivity" />
+        <activity
+            android:name=".ui.salesentryhistory.SalesEntryHistory"
+            android:configChanges="orientation|screenSize|screenLayout" />
         <activity android:name=".ui.newcustomers.Newcustomers" />
         <activity
             android:name=".ui.mainlogin.SplashScreen"

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".ui.rejection.SkuRejectedActivity">
+
+<androidx.appcompat.widget.Toolbar
+    android:id="@+id/_rejection_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bp"
+    app:title="Rejected SKU"
+    app:titleTextColor="@color/white"
+    app:navigationIcon="@drawable/ic_baseline_arrow_back_ios_24"
+    />
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/_rejection_toolbar"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/rejection_sku_qty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_marginTop="50dp">
+
+           <LinearLayout
+               android:layout_width="150dp"
+               android:layout_height="wrap_content">
+
+               <com.google.android.material.textfield.TextInputLayout
+                   android:id="@+id/tv_l_rejection_channel"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="Unit"
+                   android:paddingStart="20dp"
+                   android:paddingEnd="2dp"
+                   style="@style/Widget.MyApp.Spinner">
+
+                   <AutoCompleteTextView
+                       android:id="@+id/tv_field_update_channel"
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:fontFamily="@font/opensanbold"
+                       />
+
+               </com.google.android.material.textfield.TextInputLayout>
+
+           </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tv_l_update_contact"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Qty Return"
+                    android:paddingEnd="20dp"
+                    style="@style/inputText"
+                    android:layout_gravity="right">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tv_field_update_contact"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/opensanbold"
+                        android:textSize="18dp"
+                        android:paddingBottom="16dp"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/rejection_sku_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_below="@+id/rejection_sku_qty">
+
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tv_l_rejection_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Item Group"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="2dp"
+                    style="@style/Widget.MyApp.Spinner">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/tv_l_rejection_groups"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/opensanbold"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tv_l_update_sku"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Item Name"
+                    android:paddingEnd="20dp"
+                    style="@style/inputText"
+                    android:layout_gravity="right"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tv_l_update_skus"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/opensanbold"
+                        android:textSize="18dp"
+                        android:paddingBottom="16dp"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tv_l_rejection_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Location"
+            style="@style/Widget.MyApp.Spinner"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:layout_below="@+id/rejection_sku_group">
+
+            <AutoCompleteTextView
+                android:id="@+id/tv_field_update_channels"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/opensanbold"
+
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tv_l_rejection_lot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Lot Number"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="10dp"
+            style="@style/inputText"
+            android:layout_below="@+id/tv_l_rejection_location"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tv_field_update_lots"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/opensanbold"
+                android:textSize="18dp"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/tv_rejection_post"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_l_rejection_lot"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:fontFamily="@font/opensanbold"
+            android:text="Post"
+            android:textAlignment="center"
+            android:textColor="@color/rippleEffectColor"
+            android:textSize="16sp"
+            android:padding="12dp"
+            />
+
+        <ProgressBar
+            android:id="@+id/update_progressBar_rejection"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:theme="@style/WhiteAccent"
+            android:layout_below="@+id/tv_rejection_post"
+            android:visibility="invisible"/>
+
+
+
+    </RelativeLayout>
+
+</ScrollView>
+</RelativeLayout>

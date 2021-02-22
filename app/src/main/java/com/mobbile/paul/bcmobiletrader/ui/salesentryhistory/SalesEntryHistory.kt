@@ -26,12 +26,15 @@ class SalesEntryHistory : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sales_entry_history)
+        setSupportActionBar(_entryhistory_toolbar)
 
-        _sales_history_toolbar.setNavigationOnClickListener {
+        _entryhistory_toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
 
         initAdapter()
+
+        //working on this part
         listeningToIncomingData("250 GALLO")
     }
 
@@ -42,23 +45,23 @@ class SalesEntryHistory : AppCompatActivity() {
                 it.let {
                     when(it){
                         is SalesHistoryUiState.Loading->{
-                            _sales_history_progress.isVisible = true
+                            _history_progress_bar.isVisible = true
                         }
 
                         is SalesHistoryUiState.Success->{
-                            _sales_history_progress.isVisible = false
+                            _history_progress_bar.isVisible = false
                             nAdapter = SalesHistoryAdaptet(it.data, applicationContext)
                             nAdapter.notifyDataSetChanged()
 
-                            val total:Double= it.data.map {sums-> sums.amount!!.toDouble()*sums.qty!!.toDouble()}.sum()
-                            _tv_total.text = "%.2f".format(NumberFormat.getInstance().format(total).toDouble())
+                            val total = it.data.map {sums-> sums.amount!!.toDouble()*sums.qty!!.toDouble()}.sum()
+                            _tv_total.text = "Total: N${NumberFormat.getInstance().format(total)}"
 
-                            _recyclerView.setItemViewCacheSize(it.data.size)
-                            _recyclerView.adapter = nAdapter
+                            _history_recyclerView.setItemViewCacheSize(it.data.size)
+                            _history_recyclerView.adapter = nAdapter
                         }
 
                         is SalesHistoryUiState.Error->{
-                            _sales_history_progress.isVisible = false
+                            _history_progress_bar.isVisible = false
                         }
                     }
                 }
@@ -68,8 +71,8 @@ class SalesEntryHistory : AppCompatActivity() {
 
     private fun initAdapter() {
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
-        _recyclerView.layoutManager = layoutManager
-        _recyclerView.setHasFixedSize(true)
+        _history_recyclerView.layoutManager = layoutManager
+        _history_recyclerView.setHasFixedSize(true)
     }
 
 }

@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mobbile.paul.bcmobiletrader.R
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.product_adapter_layout.view.*
+import java.util.*
 import kotlin.reflect.KFunction2
 
 
@@ -44,7 +45,7 @@ class ProductAdapter(
             item: ProductListEntity,
             clickListener: KFunction2<String, Int, Unit>
         ) {
-            containerView.tv_name_product.text = item.name!!.capitalize()
+            containerView.tv_name_product.text = item.name!!.toLowerCase().capitalize()
             containerView._id_check.isChecked = item.checkitem != 1
             containerView.itemid.text = item.groupname!!.capitalize()
             containerView.group_code.text =  item.item
@@ -57,7 +58,6 @@ class ProductAdapter(
                 }
             }
         }
-
 
     }
 }

@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
 <item android:title="Customer Location (onGoogle Map)"
-    android:id="@+id/_gps_location" />
+    android:id="@+id/_gps_location" android:fontFamily="@font/opensansregular" />
 
 <item android:title="Rejection On delivery"
-    android:id="@+id/_id_close_outlet" />
+    android:id="@+id/_id_close_outlet" android:fontFamily="@font/opensansregular"/>
 
 <item android:title="Order"
-    android:id="@+id/_id_outletOpen" />
+    android:id="@+id/_id_outletOpen" android:fontFamily="@font/opensansregular"/>
 
 <item android:title="Customer Outlet Update"
-    android:id="@+id/_outlet_info_update" />
+    android:id="@+id/_outlet_info_update" android:fontFamily="@font/opensansregular"/>
 
 <item android:title="Order History"
-    android:id="@+id/sales_entry_details" />
+    android:id="@+id/sales_entry_details" android:fontFamily="@font/opensansregular"/>
 
 </menu>

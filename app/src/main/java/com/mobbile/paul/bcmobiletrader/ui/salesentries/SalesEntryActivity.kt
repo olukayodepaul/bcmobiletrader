@@ -36,6 +36,8 @@ class SalesEntryActivity : AppCompatActivity() {
 
     var getCustPriceGroup: String? = ""
 
+    var setEntryList: List<ProductListEntity> = emptyList()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.salesentry)
@@ -70,8 +72,8 @@ class SalesEntryActivity : AppCompatActivity() {
                         }
                         is SalesEntryUiState.Success -> {
                             _sales_entry_progress_bar.isVisible = false
-                            nAdapter =
-                                SalesEntryAdapter(it.data, applicationContext, ::adapterItemClicked)
+                            setEntryList = it.data
+                            nAdapter = SalesEntryAdapter(it.data, applicationContext, ::adapterItemClicked)
                             nAdapter.notifyDataSetChanged()
                             _sales_entry_recycler_view.setItemViewCacheSize(it.data.size)
                             _sales_entry_recycler_view.adapter = nAdapter
@@ -143,8 +145,12 @@ class SalesEntryActivity : AppCompatActivity() {
         val itemView = item.itemId
         when (itemView) {
             R.id.menu_next -> {
-                val intent = Intent(applicationContext, SalesEntryHistory::class.java)
-                startActivity(intent)
+                if(setEntryList.isNotEmpty()){
+                    val intent = Intent(applicationContext, SalesEntryHistory::class.java)
+                    startActivity(intent)
+                }else{
+                    CacheError(applicationContext, "Use the back Button and select sku").toast
+                }
             }
         }
         return false

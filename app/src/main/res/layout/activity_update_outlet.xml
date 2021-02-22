@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".ui.outletupdate.UpdateOutletActivity">
+
+<androidx.appcompat.widget.Toolbar
+    android:id="@+id/update_customer_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bp"
+    app:title="Update Customer"
+    app:titleTextColor="@color/white"
+    app:navigationIcon="@drawable/ic_baseline_arrow_back_ios_24"
+    />
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/update_customer_toolbar"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_update_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bp"
+            android:layout_marginBottom="40dp"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tv_l_update_customername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Customer's Name"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="10dp"
+            style="@style/inputText"
+            android:layout_below="@+id/tv_update_image"
+            app:startIconDrawable="@drawable/tv_outlets_24"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tv_field_update_custname"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/opensanbold"
+                android:textSize="18dp"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tv_l_update_contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mobile"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="10dp"
+            style="@style/inputText"
+            android:layout_below="@+id/tv_l_update_customername"
+            app:startIconDrawable="@drawable/tv_mobile_24"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tv_field_update_contact"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/opensanbold"
+                android:textSize="18dp"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tv_l_update_channel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Channel"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            style="@style/Widget.MyApp.Spinner"
+            android:layout_below="@+id/tv_l_update_contact"
+            app:startIconDrawable="@drawable/tv_channel_24"
+            >
+
+            <AutoCompleteTextView
+                android:id="@+id/tv_field_update_channel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/opensanbold"
+                android:textSize="18dp"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tv_l_update_address"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Address"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="10dp"
+            android:layout_below="@+id/tv_l_update_channel"
+
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tv_field_update_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensanbold"
+                android:textSize="18dp"
+                android:inputType="textMultiLine"
+                android:gravity="top"
+                android:lines="3"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/tv_update_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_l_update_address"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:fontFamily="@font/opensanbold"
+            android:text="Save Change"
+            android:textAlignment="center"
+            android:textColor="@color/rippleEffectColor"
+            android:textSize="16sp"
+            android:padding="12dp"
+            />
+
+        <ProgressBar
+            android:id="@+id/update_progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:theme="@style/WhiteAccent"
+            android:layout_below="@+id/tv_update_register"
+            android:visibility="invisible"/>
+
+    </RelativeLayout>
+
+</ScrollView>
+</RelativeLayout>

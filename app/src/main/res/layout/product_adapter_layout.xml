@@ -34,8 +34,8 @@
         app:layout_constraintTop_toTopOf="parent"
         android:ellipsize="end"
         android:maxLines="1"
-        android:fontFamily="@font/roboto_medium"
-        android:textSize="16sp"
+        android:fontFamily="@font/opensanssemibold"
+        android:textSize="18sp"
         />
 
     <TextView
@@ -46,7 +46,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="7dp"
         android:ellipsize="end"
-        android:fontFamily="@font/roboto_medium"
+        android:fontFamily="@font/opensanssemibold"
         android:maxLines="1"
         android:text="TextView"
         android:textSize="13sp"
@@ -62,12 +62,12 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="7dp"
         android:text="TextView"
+        android:fontFamily="@font/opensanssemibold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/group_code"
         app:layout_constraintTop_toBottomOf="@+id/tv_name_product"
         android:ellipsize="end"
         android:maxLines="1"
-        android:fontFamily="@font/roboto_medium"
         android:textSize="13sp"/>
 
 
