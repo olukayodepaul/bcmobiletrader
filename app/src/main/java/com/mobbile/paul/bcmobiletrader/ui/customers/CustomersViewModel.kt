@@ -39,7 +39,7 @@ class CustomersViewModel @ViewModelInject constructor(private val repository: Cu
                 }else if(e.message!!.contains("Unable to resolve host", true)){
                     _customerUiState.value = CustomerUiState.Error("Mobile data is off")
                 }else if(e.message!!.contains("Failed to connect to", true)){
-                    _customerUiState.value = CustomerUiState.Error("Mobile trader cloud is download")
+                    _customerUiState.value = CustomerUiState.Error("Mobile trader cloud is down")
                 }else{
                     _customerUiState.value = CustomerUiState.Error(e.message.toString())
                 }

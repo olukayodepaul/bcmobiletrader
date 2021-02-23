@@ -7,6 +7,7 @@ import android.location.LocationManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -29,6 +30,7 @@ import com.mobbile.paul.bcmobiletrader.util.PreferenceKeys
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.customersactivity.*
 import kotlinx.android.synthetic.main.loginactivity.*
+import kotlinx.android.synthetic.main.network_error.*
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.first
 
@@ -61,6 +63,10 @@ class CustomersActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        click_refresh.setOnClickListener {
+            callRequestPermission()
+        }
+
         callRequestPermission()
         initAdapter()
     }
@@ -88,6 +94,9 @@ class CustomersActivity : AppCompatActivity() {
                         is CustomerUiState.Success -> {
 
                             progressCust.isVisible = false
+                            custom_overlay_view.isVisible = false
+                            tv_customers.isVisible = true
+                            addCustomers.isVisible = true
 
                             if(it.data.customer.isEmpty()){
                                 CacheError(applicationContext,"Customers are not assign to you").toast
@@ -98,11 +107,14 @@ class CustomersActivity : AppCompatActivity() {
                             nAdapter.notifyDataSetChanged()
                             tv_customers.setItemViewCacheSize(it.data.customer.size)
                             tv_customers.adapter = nAdapter
-
                         }
                         is CustomerUiState.Error -> {
+
                             progressCust.isVisible = false
-                            CacheError(applicationContext, it.message).toast
+                            custom_overlay_view.isVisible = true
+                            tv_customers.isVisible = false
+                            addCustomers.isVisible = false
+                            tv_network.text = it.message
                         }
                     }
                 }
