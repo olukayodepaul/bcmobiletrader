@@ -21,7 +21,9 @@ object LocalCacheModule {
             application,
             AppDatabase::class.java,
             AppDatabase.DATABASE_NAME
-        ).build()
+        )
+            .fallbackToDestructiveMigration()
+            .build()
     }
 
     @Singleton

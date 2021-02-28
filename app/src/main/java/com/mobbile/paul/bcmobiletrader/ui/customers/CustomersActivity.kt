@@ -89,11 +89,11 @@ class CustomersActivity : AppCompatActivity() {
                 it.let {
                     when (it) {
                         is CustomerUiState.Loading -> {
-                            progressCust.isVisible = true
+                            progressCust.visibility= View.VISIBLE
                         }
                         is CustomerUiState.Success -> {
 
-                            progressCust.isVisible = false
+                            progressCust.visibility= View.INVISIBLE
                             custom_overlay_view.isVisible = false
                             tv_customers.isVisible = true
                             addCustomers.isVisible = true
@@ -110,7 +110,7 @@ class CustomersActivity : AppCompatActivity() {
                         }
                         is CustomerUiState.Error -> {
 
-                            progressCust.isVisible = false
+                            progressCust.visibility= View.INVISIBLE
                             custom_overlay_view.isVisible = true
                             tv_customers.isVisible = false
                             addCustomers.isVisible = false

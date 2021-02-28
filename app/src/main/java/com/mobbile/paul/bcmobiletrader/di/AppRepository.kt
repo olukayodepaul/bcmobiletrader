@@ -2,6 +2,8 @@ package com.mobbile.paul.bcmobiletrader.di
 
 import com.mobbile.paul.bcmobiletrader.datasource.AppDao
 import com.mobbile.paul.bcmobiletrader.datasource.RetrofitService
+import com.mobbile.paul.bcmobiletrader.ui.attendant.repository.AttendantRepository
+import com.mobbile.paul.bcmobiletrader.ui.attendant.repository.AttendantRepositoryImpl
 import com.mobbile.paul.bcmobiletrader.ui.customers.repository.CustomerRepository
 import com.mobbile.paul.bcmobiletrader.ui.customers.repository.CustomerRepositoryImpl
 import com.mobbile.paul.bcmobiletrader.ui.module.repository.ModuleRepository
@@ -86,6 +88,17 @@ object AppRepository {
         appdoa: AppDao
     ): SalesEntryHistoryRepository {
         return SalesEntryHistoryRepositoryImpl(
+            retrofitService, appdoa
+        )
+    }
+
+    @Singleton
+    @Provides
+    fun provideAttendantRepository(
+        retrofitService: RetrofitService,
+        appdoa: AppDao
+    ): AttendantRepository {
+        return AttendantRepositoryImpl(
             retrofitService, appdoa
         )
     }

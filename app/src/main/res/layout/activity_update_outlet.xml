@@ -9,11 +9,12 @@ tools:context=".ui.outletupdate.UpdateOutletActivity">
 <androidx.appcompat.widget.Toolbar
     android:id="@+id/update_customer_toolbar"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     android:background="@color/bp"
     app:title="Update Customer"
     app:titleTextColor="@color/white"
     app:navigationIcon="@drawable/ic_baseline_arrow_back_ios_24"
+    android:theme="@style/AppTheme.Toolbar"
+    android:layout_height="?attr/actionBarSize"
     />
 
 <ScrollView

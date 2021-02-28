@@ -11,34 +11,49 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?attr/actionBarSize"
         android:background="@color/bp"
         app:title="Modules"
         app:titleTextColor="@color/white"
+        android:theme="@style/AppTheme.Toolbar"
+        />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressBarID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:indeterminate="true"
+        android:visibility="invisible"
         />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar">
+        android:layout_below="@+id/progressBarID">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/tv_module"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/ballReleasegb"
-            />
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <ProgressBar
-            android:id="@+id/progressBarID"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:indeterminate="true"
-            android:indeterminateTint="@color/bp"
+        <include
+            android:id="@+id/modules_overlay_view"
+            layout="@layout/network_error"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
+            android:visibility="gone"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

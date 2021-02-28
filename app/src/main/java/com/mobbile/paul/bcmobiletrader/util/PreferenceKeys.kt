@@ -10,6 +10,7 @@ class PreferenceKeys {
         const val PREVIOUS_AUTH_USER: String = "com.mt.openapi.PREVIOUS_AUTH_USER"
         const val BLOG_FILTER: String = "com.mt.openapi.BLOG_FILTER"
         const val BLOG_ORDER: String = "com.mt.openapi.BLOG_ORDER"
+   
     }
 
 }

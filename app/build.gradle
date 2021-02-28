@@ -109,7 +109,7 @@ dependencies {
     implementation Dependencies.glides
     annotationProcessor Dependencies.glide_github
 
-    //Leak Canary (detecting memory leaks)
+
     debugImplementation Dependencies.leak_canary
 
 

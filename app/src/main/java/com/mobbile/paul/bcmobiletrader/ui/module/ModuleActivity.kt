@@ -11,7 +11,9 @@ import com.mobbile.paul.bcmobiletrader.R
 import com.mobbile.paul.bcmobiletrader.ui.mainlogin.UserLogin
 import com.mobbile.paul.bcmobiletrader.util.CacheError
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.customersactivity.*
 import kotlinx.android.synthetic.main.moduleactivity.*
+import kotlinx.android.synthetic.main.network_error.*
 import kotlinx.coroutines.flow.collect
 
 @AndroidEntryPoint
@@ -28,6 +30,11 @@ class ModuleActivity : AppCompatActivity() {
         setContentView(R.layout.moduleactivity)
         getAllUserInfoData = intent.extras!!.getParcelable("setAllUserInfoData")!!
         viewModel.fetchUserModule(getAllUserInfoData!!.id!!)
+
+        click_refresh.setOnClickListener {
+            viewModel.fetchUserModule(getAllUserInfoData!!.id!!)
+        }
+
         modulesStateFlow()
         initAdapter()
     }
@@ -48,6 +55,8 @@ class ModuleActivity : AppCompatActivity() {
                         }
                         is ModuleUiState.Success -> {
                             progressBarID.isVisible = false
+                            modules_overlay_view.isVisible = false
+                            tv_module.isVisible = true
                             nAdapter = ModuleAdapter(it.data.modules, applicationContext)
                             nAdapter.notifyDataSetChanged()
                             tv_module.setItemViewCacheSize(it.data.modules.size)
@@ -55,7 +64,9 @@ class ModuleActivity : AppCompatActivity() {
                         }
                         is ModuleUiState.Error -> {
                             progressBarID.isVisible = false
-                            CacheError(applicationContext, it.message).toast
+                            modules_overlay_view.isVisible = true
+                            tv_module.isVisible = false
+                            tv_network.text = it.message
                         }
                     }
                 }

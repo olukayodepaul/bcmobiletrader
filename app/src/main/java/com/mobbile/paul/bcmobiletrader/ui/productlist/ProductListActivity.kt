@@ -1,12 +1,15 @@
 package com.mobbile.paul.bcmobiletrader.ui.productlist
 
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -29,6 +32,8 @@ class ProductListActivity : AppCompatActivity() {
 
     private lateinit var getParceableData: CustomersListDto
 
+    lateinit var dataCollection: List<ProductListEntity>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.productlist)
@@ -44,10 +49,26 @@ class ProductListActivity : AppCompatActivity() {
         _product_toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
+
     }
 
-   override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    @SuppressLint("ResourceAsColor")
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.productmenu, menu)
+        val SearchItem  = menu!!.findItem(R.id.search_next)
+        val searhView = SearchItem?.actionView as SearchView
+
+
+        searhView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                nAdapter.filter.filter(newText)
+                return false
+            }
+        })
         return true
     }
 
@@ -82,8 +103,9 @@ class ProductListActivity : AppCompatActivity() {
 
                         is ProductsUiState.Success -> {
                             productProgressBar.isVisible = false
-                            nAdapter = ProductAdapter(it.data, applicationContext,::checkIfCheckboxIsCheked)
-                            nAdapter.notifyDataSetChanged()
+                            dataCollection = it.data
+                            nAdapter = ProductAdapter(applicationContext, ::checkIfCheckboxIsCheked)
+                            nAdapter.ProductAdapter(dataCollection as ArrayList<ProductListEntity>)
                             tv_product.setItemViewCacheSize(it.data.size)
                             tv_product.adapter = nAdapter
                         }
@@ -98,7 +120,7 @@ class ProductListActivity : AppCompatActivity() {
         }
     }
 
-    private fun checkIfCheckboxIsCheked(code:String, ckeck:Int) {
+    private fun checkIfCheckboxIsCheked(code: String, ckeck: Int) {
         viewModel.checkSelectProducts(ckeck, code)
     }
 }

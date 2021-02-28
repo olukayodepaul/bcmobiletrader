@@ -1,6 +1,7 @@
 package com.mobbile.paul.bcmobiletrader.datasource
 
 
+import com.mobbile.paul.bcmobiletrader.ui.attendant.TodayTasks
 import com.mobbile.paul.bcmobiletrader.ui.customers.CustomerResDto
 import com.mobbile.paul.bcmobiletrader.ui.mainlogin.UserLoginRes
 import com.mobbile.paul.bcmobiletrader.ui.module.ModulesResDto
@@ -36,4 +37,11 @@ interface RetrofitService{
         @Query("repedcode") repedcode: String
     ): ItemsEntryRes
 
+    @GET("/ba/api/task")
+    suspend fun getItems(
+        @Query("repedcode") repedcode: String,
+        @Query("lat") lat: String,
+        @Query("lng") lng: String,
+        @Query("tasktype") tasttype: Int
+    ): TodayTasks
 }
