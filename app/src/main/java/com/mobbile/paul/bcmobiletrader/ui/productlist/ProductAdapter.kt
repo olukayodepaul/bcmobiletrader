@@ -16,7 +16,6 @@ import kotlin.reflect.KFunction2
 
 
 class ProductAdapter(
-    private val context: Context,
     private val clickListener: KFunction2<String, Int, Unit>
 ) : RecyclerView.Adapter<ProductAdapter.ViewHolder>() , Filterable {
 

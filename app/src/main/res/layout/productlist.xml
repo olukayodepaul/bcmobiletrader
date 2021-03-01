@@ -18,18 +18,68 @@
         android:theme="@style/AppTheme.Toolbar"
         android:layout_height="?attr/actionBarSize"/>
 
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/_toolSearchView"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:orientation="vertical"
+            android:layout_below="@+id/_product_toolbar"
+            android:background="@color/white"
+            android:visibility="gone"
+            android:elevation="10dp">
+
+            <ImageView
+                android:id="@+id/image_back_icon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/ic_baseline_arrow_back_ios_2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <SearchView
+                android:id="@+id/search_view"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="5dp"
+                android:background="@color/white"
+                android:clickable="true"
+                android:theme="@style/AppTheme.searchviews"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:queryHint="Search"
+                android:iconifiedByDefault="false"
+                android:searchIcon="@null"
+                android:searchHintIcon="@null"
+                android:focusable="true"
+                app:iconifiedByDefault="false"
+                android:focusableInTouchMode="true"
+                android:animateLayoutChanges="true"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/_product_toolbar">
+        android:layout_below="@+id/_toolSearchView">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/tv_product"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/ballReleasegb"
-
-            />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ProgressBar
             android:id="@+id/productProgressBar"

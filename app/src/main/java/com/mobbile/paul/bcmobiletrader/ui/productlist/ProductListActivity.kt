@@ -1,15 +1,12 @@
 package com.mobbile.paul.bcmobiletrader.ui.productlist
 
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,6 +18,7 @@ import com.mobbile.paul.bcmobiletrader.util.CacheError
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.productlist.*
 import kotlinx.coroutines.flow.collect
+import android.widget.SearchView
 
 
 @AndroidEntryPoint
@@ -38,10 +36,10 @@ class ProductListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.productlist)
         setSupportActionBar(_product_toolbar)
-
         getParceableData = intent?.getParcelableExtra("passingCustomerData")!!
-
         viewModel.fetchUserProducts(getParceableData.subdivision!!)
+
+        val searchViewItems:SearchView? = findViewById(R.id.search_view)
 
         modulesStateFlow()
         initAdapter()
@@ -50,18 +48,15 @@ class ProductListActivity : AppCompatActivity() {
             onBackPressed()
         }
 
-    }
+        image_back_icon.setOnClickListener {
+            viewModel.fetchUserProducts(getParceableData.subdivision!!)
+            _product_toolbar.isVisible = true
+            _toolSearchView.isVisible = false
+        }
 
-    @SuppressLint("ResourceAsColor")
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.productmenu, menu)
-        val SearchItem  = menu!!.findItem(R.id.search_next)
-        val searhView = SearchItem?.actionView as SearchView
-
-
-        searhView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        searchViewItems!!.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
-                return true
+                return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
@@ -69,6 +64,24 @@ class ProductListActivity : AppCompatActivity() {
                 return false
             }
         })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.productmenu, menu)
+        /*val SearchItem  = menu!!.findItem(R.id.search_next)
+        val searhView = SearchItem?.actionView as SearchView
+        searhView.imeOptions = EditorInfo.IME_ACTION_DONE
+
+        searhView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+
+                return false
+            }
+        })*/
         return true
     }
 
@@ -81,6 +94,11 @@ class ProductListActivity : AppCompatActivity() {
                 intent.putExtra("companies", getParceableData.busines!!)
                 intent.putExtra("custpricegroup", getParceableData.custpricegroup!!)
                 startActivity(intent)
+            }
+            R.id.search_next->{
+
+                _product_toolbar.isVisible = false
+                _toolSearchView.isVisible = true
             }
         }
         return false
@@ -104,7 +122,7 @@ class ProductListActivity : AppCompatActivity() {
                         is ProductsUiState.Success -> {
                             productProgressBar.isVisible = false
                             dataCollection = it.data
-                            nAdapter = ProductAdapter(applicationContext, ::checkIfCheckboxIsCheked)
+                            nAdapter = ProductAdapter(::checkIfCheckboxIsCheked)
                             nAdapter.ProductAdapter(dataCollection as ArrayList<ProductListEntity>)
                             tv_product.setItemViewCacheSize(it.data.size)
                             tv_product.adapter = nAdapter
@@ -124,4 +142,5 @@ class ProductListActivity : AppCompatActivity() {
         viewModel.checkSelectProducts(ckeck, code)
     }
 }
+
 

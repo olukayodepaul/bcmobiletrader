@@ -36,5 +36,16 @@
         <item name="android:fontFamily">@font/opensanbold</item>
     </style>
 
+    <style name="AppTheme.searchviews" parent="Widget.AppCompat.Light.SearchView">
+        <item name="android:textColorPrimary">@color/bp</item>
+        <item name="android:textColorSecondary">@color/bp</item>
+        <item name="background">@color/bp</item>
+        <item name="colorControlNormal">@color/bp</item>
+        <item name="actionModeBackground">@color/bp</item>
+        <item name="fontFamily">@font/opensanbold</item>
+        <item name="android:fontFamily">@font/opensanbold</item>
+        <item name="searchHintIcon">@null</item>
+    </style>
+
 
 </resources>
